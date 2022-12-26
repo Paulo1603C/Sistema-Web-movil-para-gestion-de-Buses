@@ -45,3 +45,24 @@ Correo varchar(50),
 PaginaWeb varchar(50),
 Estado varchar(3) Default('ACT')
 );
+--Gestion de Rutas
+--Tabla Lugar
+CREATE TABLE Lugar
+(
+Id int IDENTITY(1,1) primary key ,
+Nombre varchar(50),
+Latitud decimal(18,10),
+Longitud decimal(18,10),
+Canton varchar(50),
+Provincia varchar(50)
+);
+--Tabla Ruta
+CREATE TABLE Ruta
+(
+Id int IDENTITY(1,1) primary key ,
+IdLugarOrigen int,
+IdLugarDestino int,
+Estado varchar(3) Default('ACT'),
+CONSTRAINT fk_LugarRutaO FOREIGN KEY (IdLugarOrigen) REFERENCES Lugar (Id),
+CONSTRAINT fk_LugarRutaD FOREIGN KEY (IdLugarDestino) REFERENCES Lugar (Id)
+);

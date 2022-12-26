@@ -34,3 +34,14 @@ IdRol int NOT NULL,
 Estado varchar(3) Default('ACT'),
 CONSTRAINT fk_RolUsuario FOREIGN KEY (IdRol) REFERENCES Rol (Id)
 );
+--Tabla Cooperativa
+CREATE TABLE Cooperativa
+(
+Id int IDENTITY(1,1) primary key ,
+Nombre varchar(150),
+Representante varchar(250),
+Telefono varchar(25),
+Correo varchar(50),
+PaginaWeb varchar(50),
+Estado varchar(3) Default('ACT')
+);

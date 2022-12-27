@@ -66,3 +66,42 @@ Estado varchar(3) Default('ACT'),
 CONSTRAINT fk_LugarRutaO FOREIGN KEY (IdLugarOrigen) REFERENCES Lugar (Id),
 CONSTRAINT fk_LugarRutaD FOREIGN KEY (IdLugarDestino) REFERENCES Lugar (Id)
 );
+--Gestion de Buses
+--Tabla Bus
+CREATE TABLE Bus
+(
+Id int IDENTITY(1,1) primary key ,
+IdCooperativa int,
+Numero varchar(15),
+Anio int,
+RamvCpn varchar(25),
+ModeloCar varchar(25),
+MarcaCh varchar(25),
+Transporte varchar(25),
+Pisos int NOT NULL,
+Capacidad int NOT NULL,
+Puertas int NOT NULL,
+RutaImagen varchar(150),
+Estado varchar(3) Default('ACT'),
+CONSTRAINT fk_CooperativaBus FOREIGN KEY (IdCooperativa) REFERENCES Cooperativa (Id)
+);
+--Tabla Categoria de Asientos
+CREATE TABLE Categoria
+(
+Id int IDENTITY(1,1) primary key ,
+Descripcion varchar(50),
+IdCooperativa int,
+CONSTRAINT fk_CooperativaCategoria FOREIGN KEY (IdCooperativa) REFERENCES Cooperativa (Id)
+);
+--Tabla Asiento
+CREATE TABLE Asiento
+(
+Id int IDENTITY(1,1) primary key ,
+IdBus int,
+Orden int,
+Descripcion varchar(25),
+IdCategoria int, 
+Estado varchar(3) Default('ACT'),
+CONSTRAINT fk_BusAsiento FOREIGN KEY (IdBus) REFERENCES Bus (Id),
+CONSTRAINT fk_CategoriaAsiento FOREIGN KEY (IdCategoria) REFERENCES Categoria (Id)
+);

@@ -105,3 +105,44 @@ Estado varchar(3) Default('ACT'),
 CONSTRAINT fk_BusAsiento FOREIGN KEY (IdBus) REFERENCES Bus (Id),
 CONSTRAINT fk_CategoriaAsiento FOREIGN KEY (IdCategoria) REFERENCES Categoria (Id)
 );
+--Gestión de Frecuencias
+--Tabla Frecuencia
+CREATE TABLE Frecuencia
+(
+Id int IDENTITY(1,1) primary key ,
+IdRuta int,
+IdCooperativa int,
+HoraSalida varchar(5),
+HoraArribo varchar(5),
+Habilitado bit,
+IdUsuarioH int,
+DiaSemana char(1),
+Estado varchar(3) Default('ACT'),
+CONSTRAINT fk_RutaFrecuencia FOREIGN KEY (IdRuta) REFERENCES Ruta (Id),
+CONSTRAINT fk_CooperativaFrecuencia FOREIGN KEY (IdCooperativa) REFERENCES Cooperativa (Id),
+CONSTRAINT fk_UsuarioFrecuencia FOREIGN KEY (IdUsuarioH) REFERENCES Usuario (Id)
+);
+--Tabla Frecuencia_Bus
+CREATE TABLE Frecuencia_Bus
+(
+Id int IDENTITY(1,1) primary key ,
+IdFrecuencia int,
+IdBus int,
+Habilitado bit,
+IdUsuarioH int,
+Estado varchar(3) Default('ACT'),
+CONSTRAINT fk_Frecuencia_FrecuenciaBus FOREIGN KEY (IdFrecuencia) REFERENCES Frecuencia (Id),
+CONSTRAINT fk_Bus_FrecuenciaBus FOREIGN KEY (IdBus) REFERENCES Bus (Id),
+CONSTRAINT fk_Usuario_FrecuenciaBus FOREIGN KEY (IdUsuarioH) REFERENCES Usuario (Id)
+);
+--Tabla Frecuencia_Parada
+CREATE TABLE Frecuencia_Parada
+(
+Id int IDENTITY(1,1) primary key ,
+IdFrecuencia int,
+IdLugar int,
+Orden int,
+Estado varchar(3) Default('ACT'),
+CONSTRAINT fk_Frecuencia_FrecuenciaParada FOREIGN KEY (IdFrecuencia) REFERENCES Frecuencia (Id),
+CONSTRAINT fk_Lugar_FrecuenciaParada FOREIGN KEY (IdLugar) REFERENCES Lugar (Id)
+);

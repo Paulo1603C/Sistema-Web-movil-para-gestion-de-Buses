@@ -8,103 +8,114 @@ class LonIn extends StatefulWidget {
 }
 
 class _LonInState extends State<LonIn> {
-  
-  String _nombre="";
-  String _contrasena="";
+  String _nombre = "";
+  String _contrasena = "";
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('LogIn'),
-      ),
-      backgroundColor: Colors.blueGrey[100],
-      body: ListView(
-        padding: EdgeInsets.symmetric(
-          horizontal:30.0,
-          vertical: 50.0,
+        appBar: AppBar(
+          title: Text('LogIn'),
         ),
-        children: [
-          Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              CircleAvatar(
-                radius: 100.1,
-                backgroundColor: Colors.grey,
-                backgroundImage: AssetImage('images/logo.png'),
-              ),
-              Text('LogIn',
-                style: TextStyle(
-                  fontFamily: 'Verdana',
-                  fontSize: 50.0,
+        backgroundColor: Color.fromARGB(255, 231, 237, 240),
+        body: ListView(
+          padding: EdgeInsets.symmetric(
+            horizontal: 30.0,
+            vertical: 50.0,
+          ),
+          children: [
+            Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                CircleAvatar(
+                  radius: 100.1,
+                  backgroundColor: Colors.transparent,
+                  backgroundImage: AssetImage('images/logo.jpg'),
                 ),
-              ),
-              Divider(
-                height: 18.0,
-              ),
-              TextField(
-                enableInteractiveSelection: false,
-                autofocus: true,
-                textCapitalization: TextCapitalization.characters,
-                decoration: InputDecoration(
-                  labelText: 'User',
-                  suffixIcon: Icon(
-                    Icons.verified_user
-                  ),
-                  border:OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(20.0)
+                Text(
+                  'Bienvenido',
+                  style: TextStyle(
+                    fontFamily: 'Verdana',
+                    fontWeight: FontWeight.bold,
+                    fontSize: 30.0,
                   ),
                 ),
-                onSubmitted: (valor){
-                  _nombre = valor;
-                  print(_nombre);
-                },
-              ),
-              Divider(
-                height: 18.0,
-              ),
-              TextField(
-                enableInteractiveSelection: false,
-                obscureText: true,
-                decoration: InputDecoration(
-                  labelText: 'Contaseña',
-                  suffixIcon: Icon( Icons.lock_outlined),
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(20.0)
+                SizedBox(height: 5.0,),
+                Text(
+                  'Ingrese sus credenciales',
+                  style: TextStyle(
+                    fontFamily: 'Verdana',
+                    fontSize: 18.0,
+                    color: Colors.blue
                   ),
                 ),
-                onSubmitted: (valor){
-                  _contrasena = valor;
-                  print(_contrasena);
-                },
-              ),
-              Divider(
-                height: 18.0,
-              ),
-              SizedBox(
-                child: FlatButton(
-                  color: Colors.lightBlueAccent,
-                  padding: EdgeInsets.symmetric(
-                    horizontal:20.0,
-                    vertical: 15.0,
-                  ),
-                  hoverColor: Colors.lightBlue,
-                  onPressed: (){},
-                  child: Text('Sing In',
-                    style: TextStyle(
-                      color: Colors.white70,
-                      fontFamily: 'Verdana',
-                      fontSize: 30.0
-                    ),
-                  ),
-                ),
-              ),
-            ],
-          )
-        ],
-      )
-    
+                SizedBox(height: 18.0),
+                _inputUser(),
+                SizedBox(height: 18.0),
+                _inputPasword(),
+                SizedBox(height: 18.0),
+                _btnLogIn(),
+              ],
+            )
+          ],
+        ));
+  }
+
+  Widget _inputUser() {
+    return TextField(
+      enableInteractiveSelection: false,
+      autofocus: true,
+      textCapitalization: TextCapitalization.characters,
+      decoration: InputDecoration(
+        labelText: 'User',
+        suffixIcon: Icon(Icons.verified_user),
+        border: OutlineInputBorder(borderRadius: BorderRadius.circular(20.0)),
+      ),
+      onSubmitted: (valor) {
+        _nombre = valor;
+        print(_nombre);
+      },
+    );
+  }
+
+  Widget _inputPasword() {
+    return TextField(
+      enableInteractiveSelection: false,
+      obscureText: true,
+      decoration: InputDecoration(
+        labelText: 'Contaseña',
+        suffixIcon: Icon(Icons.lock_outlined),
+        border: OutlineInputBorder(borderRadius: BorderRadius.circular(20.0)),
+      ),
+      onSubmitted: (valor) {
+        _contrasena = valor;
+        print(_contrasena);
+      },
+    );
+  }
+
+  Widget _btnLogIn() {
+    return Container(
+      width: double.infinity,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(20),
+      ),
+      child: FlatButton(
+        color: Colors.blue,
+        padding: EdgeInsets.symmetric(
+          horizontal: 20.0,
+          vertical: 15.0,
+        ),
+        child: Text(
+          'Ingresar',
+          style: TextStyle(
+              color: Colors.white,
+              fontFamily: 'Verdana',
+              fontWeight: FontWeight.bold,
+              fontSize: 30.0),
+        ),
+        onPressed: () {},
+      ),
     );
   }
 }
-

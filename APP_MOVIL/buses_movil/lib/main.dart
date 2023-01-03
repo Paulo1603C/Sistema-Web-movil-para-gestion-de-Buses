@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:buses_movil/logIn/logInMain.dart';
+import 'Pages/logIn/logInMain.dart';
+
 
 void main() {
   runApp(const MyApp());

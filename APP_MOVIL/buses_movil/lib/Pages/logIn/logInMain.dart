@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../Page/Navegacion.dart';
 
 class LonIn extends StatefulWidget {
   LonIn({Key? key}) : super(key: key);
@@ -114,8 +115,12 @@ class _LonInState extends State<LonIn> {
               fontWeight: FontWeight.bold,
               fontSize: 30.0),
         ),
-        onPressed: () {},
+        onPressed: () {
+          //
+          Navigator.push(context, MaterialPageRoute(builder: (context) => Navegacion() ));
+        },
       ),
     );
   }
 }
+

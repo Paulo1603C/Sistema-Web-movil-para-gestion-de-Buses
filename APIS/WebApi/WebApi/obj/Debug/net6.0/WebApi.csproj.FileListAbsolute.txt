@@ -30,3 +30,17 @@ C:\Users\User\Desktop\PROYECTO_DAS\APIS\WebApi\WebApi\obj\Debug\net6.0\refint\We
 C:\Users\User\Desktop\PROYECTO_DAS\APIS\WebApi\WebApi\obj\Debug\net6.0\WebApi.pdb
 C:\Users\User\Desktop\PROYECTO_DAS\APIS\WebApi\WebApi\obj\Debug\net6.0\WebApi.genruntimeconfig.cache
 C:\Users\User\Desktop\PROYECTO_DAS\APIS\WebApi\WebApi\obj\Debug\net6.0\ref\WebApi.dll
+C:\Users\User\Desktop\PROYECTO_DAS\APIS\WebApi\WebApi\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.dll
+C:\Users\User\Desktop\PROYECTO_DAS\APIS\WebApi\WebApi\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Users\User\Desktop\PROYECTO_DAS\APIS\WebApi\WebApi\bin\Debug\net6.0\System.Data.SqlClient.dll
+C:\Users\User\Desktop\PROYECTO_DAS\APIS\WebApi\WebApi\bin\Debug\net6.0\runtimes\win-arm64\native\sni.dll
+C:\Users\User\Desktop\PROYECTO_DAS\APIS\WebApi\WebApi\bin\Debug\net6.0\runtimes\win-x64\native\sni.dll
+C:\Users\User\Desktop\PROYECTO_DAS\APIS\WebApi\WebApi\bin\Debug\net6.0\runtimes\win-x86\native\sni.dll
+C:\Users\User\Desktop\PROYECTO_DAS\APIS\WebApi\WebApi\bin\Debug\net6.0\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\User\Desktop\PROYECTO_DAS\APIS\WebApi\WebApi\bin\Debug\net6.0\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\User\Desktop\PROYECTO_DAS\APIS\WebApi\WebApi\bin\Debug\net6.0\Datos.dll
+C:\Users\User\Desktop\PROYECTO_DAS\APIS\WebApi\WebApi\bin\Debug\net6.0\Entidad.dll
+C:\Users\User\Desktop\PROYECTO_DAS\APIS\WebApi\WebApi\bin\Debug\net6.0\Negocio.dll
+C:\Users\User\Desktop\PROYECTO_DAS\APIS\WebApi\WebApi\bin\Debug\net6.0\Entidad.pdb
+C:\Users\User\Desktop\PROYECTO_DAS\APIS\WebApi\WebApi\bin\Debug\net6.0\Negocio.pdb
+C:\Users\User\Desktop\PROYECTO_DAS\APIS\WebApi\WebApi\bin\Debug\net6.0\Datos.pdb

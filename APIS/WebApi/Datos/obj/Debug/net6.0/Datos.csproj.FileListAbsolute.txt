@@ -1,0 +1,15 @@
+C:\Users\User\Desktop\PROYECTO_DAS\APIS\WebApi\Datos\bin\Debug\net6.0\Datos.deps.json
+C:\Users\User\Desktop\PROYECTO_DAS\APIS\WebApi\Datos\bin\Debug\net6.0\Datos.dll
+C:\Users\User\Desktop\PROYECTO_DAS\APIS\WebApi\Datos\bin\Debug\net6.0\Datos.pdb
+C:\Users\User\Desktop\PROYECTO_DAS\APIS\WebApi\Datos\bin\Debug\net6.0\Entidad.dll
+C:\Users\User\Desktop\PROYECTO_DAS\APIS\WebApi\Datos\bin\Debug\net6.0\Entidad.pdb
+C:\Users\User\Desktop\PROYECTO_DAS\APIS\WebApi\Datos\obj\Debug\net6.0\Datos.csproj.AssemblyReference.cache
+C:\Users\User\Desktop\PROYECTO_DAS\APIS\WebApi\Datos\obj\Debug\net6.0\Datos.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\User\Desktop\PROYECTO_DAS\APIS\WebApi\Datos\obj\Debug\net6.0\Datos.AssemblyInfoInputs.cache
+C:\Users\User\Desktop\PROYECTO_DAS\APIS\WebApi\Datos\obj\Debug\net6.0\Datos.AssemblyInfo.cs
+C:\Users\User\Desktop\PROYECTO_DAS\APIS\WebApi\Datos\obj\Debug\net6.0\Datos.csproj.CoreCompileInputs.cache
+C:\Users\User\Desktop\PROYECTO_DAS\APIS\WebApi\Datos\obj\Debug\net6.0\Datos.csproj.CopyComplete
+C:\Users\User\Desktop\PROYECTO_DAS\APIS\WebApi\Datos\obj\Debug\net6.0\Datos.dll
+C:\Users\User\Desktop\PROYECTO_DAS\APIS\WebApi\Datos\obj\Debug\net6.0\refint\Datos.dll
+C:\Users\User\Desktop\PROYECTO_DAS\APIS\WebApi\Datos\obj\Debug\net6.0\Datos.pdb
+C:\Users\User\Desktop\PROYECTO_DAS\APIS\WebApi\Datos\obj\Debug\net6.0\ref\Datos.dll

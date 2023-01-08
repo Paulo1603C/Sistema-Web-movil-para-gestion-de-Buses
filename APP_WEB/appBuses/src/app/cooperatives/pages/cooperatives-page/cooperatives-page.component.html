@@ -1,21 +1,14 @@
 <div class="container-fluid g-0">
     <app-header (sideNavToggle)="sideNavStatus=$event"></app-header>
 
-    <div class="search">
-        <div class="input-group">
-            <div class="form-outline">
-              <input type="search" id="form1" class="form-control" />
-              <label class="form-label" for="form1">Search</label>
-            </div>
-            <button type="button" class="btn btn-primary">
-              <i class="fas fa-search"></i>
-            </button>
-          </div>
-    </div>
     <main>
         <app-side-nav [sideNavStatus]="sideNavStatus" [ngClass]="{'app-side-nav-open': sideNavStatus}"></app-side-nav>
 
         <div class="display-area p-3" [ngClass]="{'display-area-shrink': sideNavStatus}">
+            <div class="header_body">
+                <app-modal></app-modal>
+                <app-search-bar></app-search-bar>
+            </div>
             <app-table [data]="dataCooperatives" [columns]="columns" (onDelete)="deleteCooperative($event)"></app-table>
         </div>
     </main>

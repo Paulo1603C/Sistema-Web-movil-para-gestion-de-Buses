@@ -3,11 +3,13 @@ import { CommonModule } from '@angular/common';
 
 import { TableComponent } from './table/table.component';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { SearchBarComponent } from './search-bar/search-bar.component';
 
 
 @NgModule({
   declarations: [
-    TableComponent
+    TableComponent,
+    SearchBarComponent
   ],
   imports: [
     CommonModule,
@@ -15,7 +17,8 @@ import { NgxPaginationModule } from 'ngx-pagination';
   ],
   exports: [
     TableComponent,
-    NgxPaginationModule
+    NgxPaginationModule,
+    SearchBarComponent
   ]
 })
 export class SharedModule { }

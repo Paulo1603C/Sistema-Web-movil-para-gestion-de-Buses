@@ -10,7 +10,6 @@ main{
     position: absolute;
     width: 100%;
     top: 4rem;
-    z-index: 1;
 }
 
 app-side-nav{
@@ -24,6 +23,15 @@ app-side-nav{
     overflow-x: hidden;
     white-space: nowrap;
     transition: width 250ms ease-in;
+}
+
+.header_body{
+    display: flex;
+    justify-content: space-between;
+}
+
+app-modal{
+    margin-top: 10px;
 }
 
 .app-side-nav-open{

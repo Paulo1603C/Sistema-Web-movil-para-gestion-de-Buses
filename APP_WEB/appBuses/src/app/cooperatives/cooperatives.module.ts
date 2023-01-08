@@ -5,6 +5,7 @@ import { CooperativesRoutingModule } from './cooperatives-routing.module';
 import { CooperativesPageComponent } from './pages/cooperatives-page/cooperatives-page.component';
 import { RouterModule } from '@angular/router';
 import { CoreModule } from '../core/core.module';
+import { SharedModule } from '../shared/shared.module';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { CoreModule } from '../core/core.module';
     CommonModule,
     CooperativesRoutingModule,
     RouterModule,
-    CoreModule
+    CoreModule,
+    SharedModule
   ]
 })
 export class CooperativesModule { }

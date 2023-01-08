@@ -69,7 +69,7 @@ class _LonInState extends State<LonIn> {
       textCapitalization: TextCapitalization.characters,
       decoration: InputDecoration(
         labelText: 'User',
-        suffixIcon: Icon(Icons.verified_user),
+        suffixIcon: Icon(Icons.person),
         border: OutlineInputBorder(borderRadius: BorderRadius.circular(20.0)),
       ),
       onSubmitted: (valor) {
@@ -85,7 +85,14 @@ class _LonInState extends State<LonIn> {
       obscureText: true,
       decoration: InputDecoration(
         labelText: 'Contaseña',
-        suffixIcon: Icon(Icons.lock_outlined),
+        suffixIcon: IconButton(
+          onPressed: (
+            (){
+              _verContrasena();
+            }
+          ), 
+          icon: Icon(Icons.remove_red_eye_sharp),
+        ),
         border: OutlineInputBorder(borderRadius: BorderRadius.circular(20.0)),
       ),
       onSubmitted: (valor) {
@@ -121,6 +128,12 @@ class _LonInState extends State<LonIn> {
         },
       ),
     );
+  }
+
+  _verContrasena(){
+    setState(() {
+      print('ver contraseña');
+    });
   }
 }
 

@@ -6,6 +6,7 @@ import { MainPageComponent } from './pages/main-page/main-page.component';
 import { HeaderComponent } from './components/header/header.component';
 import { SideNavComponent } from './components/side-nav/side-nav.component';
 import { LoginComponent } from './pages/login/login.component';
+import { RouterModule } from '@angular/router';
 
 
 @NgModule({
@@ -17,7 +18,13 @@ import { LoginComponent } from './pages/login/login.component';
   ],
   imports: [
     CommonModule,
-    CoreRoutingModule
+    CoreRoutingModule,
+    RouterModule
+  ],
+  exports:[
+    MainPageComponent,
+    HeaderComponent,
+    SideNavComponent,
   ]
 })
 export class CoreModule { }

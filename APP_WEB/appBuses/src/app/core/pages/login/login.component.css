@@ -19,7 +19,7 @@
 }
 
 .side-image{
-    background-image: url('../../../assets/img/buses_fondo.jpg');
+    background-image: url('../../../../assets/img/buses_fondo.jpg');
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;

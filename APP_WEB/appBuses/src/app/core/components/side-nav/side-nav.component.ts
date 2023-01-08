@@ -1,27 +1,21 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { IMenu, MenuService } from 'src/app/services/menu/menu.service';
 
 @Component({
   selector: 'app-side-nav',
   templateUrl: './side-nav.component.html',
   styleUrls: ['./side-nav.component.css']
 })
-export class SideNavComponent {
+export class SideNavComponent implements OnInit {
   @Input() sideNavStatus: boolean = false
-  list = [
-      {
-        number: '1',
-        name: 'Cooperativas',
-        icon: 'bi bi-building'
-      },
-      {
-        number: '2',
-        name: 'Buses',
-        icon: 'bi bi-bus-front'
-      },
-      {
-        number: '3',
-        name: 'Frecuencias',
-        icon: 'bi bi-signpost-split-fill'
-      }
-    ]
+
+  list: IMenu[]
+
+  constructor(private menuService:MenuService) { 
+    this.list = this.menuService.getMenu();
+   }
+
+  ngOnInit(): void {
+  }
+
 }

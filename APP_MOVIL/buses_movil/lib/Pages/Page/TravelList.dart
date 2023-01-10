@@ -8,12 +8,6 @@ class TravelList extends StatefulWidget {
 }
 
 class _TravelListState extends State<TravelList> {
-  List<Buses> listaBuses = [
-    Buses('ABB-569', 'James'),
-    Buses('TVO-6658', 'MENDEZ'),
-    Buses('CVV-9999', 'REYES'),
-    Buses('CFG-1245', 'FREIRE'),
-  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -84,7 +78,7 @@ class _TravelListState extends State<TravelList> {
     return Container(
       child: _listadoBuses(context),
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(20.0),
+        borderRadius: BorderRadius.circular(50),
       ),
     );
   }
@@ -145,17 +139,42 @@ class _TravelListState extends State<TravelList> {
       itemCount: listaBuses.length,
       itemBuilder: (context, index) {
         return Card(
-          child: Row(
-            children: [
-              Image.asset("images/logo.jpg"),
-              Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  Text(listaBuses[index].placa.toString()),
-                  Text(listaBuses[index].Conductor.toString()),
-                ],
-              ),
-            ],
+          child: Padding(
+            padding: EdgeInsets.all(15.0),
+            child: Row(
+              children: [
+                Container(
+                  padding: EdgeInsets.symmetric(
+                    horizontal: 2.0,
+                    vertical: 2.0
+                  ),
+                  child: Column(
+                    children: [
+                      Text("Coperativa"),
+                      SizedBox(height: 5.0,),
+                      Image.asset(""),
+                      SizedBox(height: 5.0,),
+                      Text("Disponible"),//esto buiene de BD;
+                      
+                    ],
+                  ),
+                  ),
+            
+                Container(
+                  padding: EdgeInsets.symmetric(
+                    horizontal: 2.0,
+                    vertical: 2.0
+                  ),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(listaBuses[index].placa.toString()),
+                      Text(listaBuses[index].Conductor.toString()),
+                    ],
+                  ),
+                ),
+              ],
+            ) ,
           ),
         );
       },

@@ -3,15 +3,24 @@ import { CommonModule } from '@angular/common';
 
 import { BusesRoutingModule } from './buses-routing.module';
 import { BusesPageComponent } from './pages/buses-page/buses-page.component';
+import { SharedModule } from '../shared/shared.module';
+import { CoreModule } from '../core/core.module';
+import { ModalComponent } from './components/modal/modal.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
   declarations: [
-    BusesPageComponent
+    BusesPageComponent,
+    ModalComponent
   ],
   imports: [
     CommonModule,
-    BusesRoutingModule
+    BusesRoutingModule,
+    SharedModule,
+    CoreModule,
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class BusesModule { }

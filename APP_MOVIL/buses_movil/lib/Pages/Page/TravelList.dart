@@ -129,10 +129,12 @@ class _TravelListState extends State<TravelList> {
 //plantilla para cargar el listado de los buses
   Widget _listadoBuses(BuildContext context) {
     List<Buses> listaBuses = [
-      Buses('ABB-569', 'James'),
-      Buses('TVO-6658', 'MENDEZ'),
-      Buses('CVV-9999', 'REYES'),
-      Buses('CFG-1245', 'FREIRE'),
+      Buses( "Coperativa", "Quito", "Ambato", "22/02/15-22:10","Disponible" ),
+      Buses( "Coperativa", "Quito", "Ambato", "22/02/15-22:10","Lleno" ),
+      Buses( "Coperativa", "Quito", "Ambato", "22/02/15-22:10","Disponible" ),
+      Buses( "Coperativa", "Quito", "Ambato", "22/02/15-22:10","Lleno" ),
+      Buses( "Coperativa", "Quito", "Ambato", "22/02/15-22:10","Disponible" ),
+      Buses( "Coperativa", "Quito", "Ambato", "22/02/15-22:10","Disponible" ),
     ];
 
     return ListView.builder(
@@ -140,41 +142,44 @@ class _TravelListState extends State<TravelList> {
       itemBuilder: (context, index) {
         return Card(
           child: Padding(
-            padding: EdgeInsets.all(15.0),
+            padding: EdgeInsets.all(8.0),
             child: Row(
               children: [
-                Container(
-                  padding: EdgeInsets.symmetric(
-                    horizontal: 2.0,
-                    vertical: 2.0
-                  ),
-                  child: Column(
+                Expanded(child: 
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
                     children: [
-                      Text("Coperativa"),
-                      SizedBox(height: 5.0,),
-                      Image.asset(""),
-                      SizedBox(height: 5.0,),
-                      Text("Disponible"),//esto buiene de BD;
-                      
+                      Text( listaBuses[index].coperativa.toString() ),
+                      Image.asset( "images/bus.png",width: 100, height: 100, ),
+                      Text( listaBuses[index].fecha.toString() ),
                     ],
                   ),
-                  ),
-            
-                Container(
-                  padding: EdgeInsets.symmetric(
-                    horizontal: 2.0,
-                    vertical: 2.0
-                  ),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
+                ),
+
+                Expanded(child: 
+                  Column(
                     children: [
-                      Text(listaBuses[index].placa.toString()),
-                      Text(listaBuses[index].Conductor.toString()),
+                      Text( "Salida:" +listaBuses[index].salida.toString() ),
+                      Text( "Llegada: " +listaBuses[index].estado.toString() ),
+                      Text( listaBuses[index].llegada.toString() ),
+                      Card(
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text("5.55"),
+                            SizedBox(width: 8.0,),
+                            IconButton(
+                              onPressed: (){}, 
+                              icon: Icon( Icons.arrow_forward ),
+                            )
+                          ],
+                        ),
+                      ),
                     ],
                   ),
                 ),
               ],
-            ) ,
+            ),
           ),
         );
       },
@@ -184,11 +189,17 @@ class _TravelListState extends State<TravelList> {
 
 //clase buses
 class Buses {
-  String? placa;
-  String? Conductor;
+  String? coperativa;
+  String? estado;
+  String? salida;
+  String? llegada;
+  String? fecha;
 
-  Buses(placa, coductor) {
-    this.placa = placa;
-    this.Conductor = coductor;
+  Buses( coperativa, estado, salida, llegada, fecha) {
+    this.coperativa = coperativa;
+    this.estado = estado;
+    this.salida = salida;
+    this.llegada = llegada;
+    this.fecha = fecha;
   }
 }

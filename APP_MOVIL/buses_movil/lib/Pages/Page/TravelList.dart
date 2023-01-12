@@ -133,8 +133,6 @@ class _TravelListState extends State<TravelList> {
       Buses( "Coperativa", "Quito", "Ambato", "22/02/15-22:10","Lleno" ),
       Buses( "Coperativa", "Quito", "Ambato", "22/02/15-22:10","Disponible" ),
       Buses( "Coperativa", "Quito", "Ambato", "22/02/15-22:10","Lleno" ),
-      Buses( "Coperativa", "Quito", "Ambato", "22/02/15-22:10","Disponible" ),
-      Buses( "Coperativa", "Quito", "Ambato", "22/02/15-22:10","Disponible" ),
     ];
 
     return ListView.builder(
@@ -169,7 +167,9 @@ class _TravelListState extends State<TravelList> {
                             Text("5.55"),
                             SizedBox(width: 8.0,),
                             IconButton(
-                              onPressed: (){}, 
+                              onPressed: (){
+                                _reserva();
+                              }, 
                               icon: Icon( Icons.arrow_forward ),
                             )
                           ],
@@ -184,6 +184,12 @@ class _TravelListState extends State<TravelList> {
         );
       },
     );
+  }
+
+  _reserva(){
+    setState(() {
+      //Navigator.push(context, MaterialPageRoute(builder: (context) => Navegacion() ));
+    });
   }
 }
 

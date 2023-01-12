@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-
 class TravelInformation extends StatefulWidget {
   TravelInformation({Key? key}) : super(key: key);
 
@@ -12,12 +11,10 @@ class _TravelInformationState extends State<TravelInformation> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: Text("User",
-        style: TextStyle(
-          fontFamily: "verdana",
-          fontSize: 25.0
-        ),  
-    ),
+      child: Text(
+        "User",
+        style: TextStyle(fontFamily: "verdana", fontSize: 25.0),
+      ),
     );
   }
 }

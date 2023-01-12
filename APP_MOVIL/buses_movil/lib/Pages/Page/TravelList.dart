@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
+
+import 'TravelInfromation.dart';
 
 class TravelList extends StatefulWidget {
   TravelList({Key? key}) : super(key: key);
@@ -8,6 +11,8 @@ class TravelList extends StatefulWidget {
 }
 
 class _TravelListState extends State<TravelList> {
+  TextEditingController dateController = TextEditingController();
+  String? buscar;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -93,13 +98,29 @@ class _TravelListState extends State<TravelList> {
 //widget calendart
   Widget buscadorFecha() {
     return TextField(
+      controller: dateController,
       enableInteractiveSelection: false,
       autofocus: true,
       decoration: InputDecoration(
         hintText: "12/12/2023",
         isDense: true,
         suffix: IconButton(
-          onPressed: () {},
+          onPressed: () async {
+            DateTime? picketDate = await showDatePicker(
+              context: context, 
+              initialDate: DateTime.now(), 
+              firstDate: DateTime(2000), 
+              lastDate: DateTime(2101));
+              if( picketDate == null ){
+                print("no hay fecha");
+              }else{
+
+                String formatoDate = DateFormat('yyyy-MM-dd').format(picketDate);
+                setState(() {
+                  dateController.text = formatoDate.toString();
+                });
+              }
+          },
           icon: Icon(Icons.calendar_month),
         ),
         border: OutlineInputBorder(borderRadius: BorderRadius.circular(15.0)),
@@ -168,7 +189,7 @@ class _TravelListState extends State<TravelList> {
                             SizedBox(width: 8.0,),
                             IconButton(
                               onPressed: (){
-                                _reserva();
+                                _screenTravleInformation();
                               }, 
                               icon: Icon( Icons.arrow_forward ),
                             )
@@ -186,9 +207,9 @@ class _TravelListState extends State<TravelList> {
     );
   }
 
-  _reserva(){
+  _screenTravleInformation(){
     setState(() {
-      //Navigator.push(context, MaterialPageRoute(builder: (context) => Navegacion() ));
+      Navigator.of(context).push(MaterialPageRoute(builder: (context)=> TravelInformation() ));
     });
   }
 }

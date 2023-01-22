@@ -1,0 +1,56 @@
+<button
+type="button"
+class="btn btn-primary mb-3"
+data-bs-toggle="modal"
+data-bs-target="#exampleModal"
+>
+Nueva Frecuencia
+</button>
+<!-- Modal -->
+<div
+      class="modal fade"
+      id="exampleModal"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Ingresar Nueva Frecuencia</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+              <form [formGroup]="frequenciesForm" (ngSubmit)="onSubmit()">
+                <label class="form-label">Ruta</label>
+                <input type="text" class="form-control" formControlName="ruta" [(ngModel)]="ruta" required>
+                <label class="form-label">Cooperativa</label>
+                <input type="text" class="form-control" formControlName="cooperativa" [(ngModel)]="cooperativa" required>
+                <label class="form-label">Hora de salida</label>
+                <input type="time" class="form-control" formControlName="hora_salida" [(ngModel)]="hora_salida" required>
+                <label class="form-label">Hora de arribo</label>
+                <input type="time" class="form-control" formControlName="hora_arribo" [(ngModel)]="hora_arribo">
+                <label class="form-label">Usuario</label>
+                <input type="text" class="form-control" formControlName="usuario" [(ngModel)]="usuario">
+                <label class="form-label">Dia de la semana</label>
+                <input type=" " class="form-control" formControlName="dia_semana" [(ngModel)]="dia_semana">
+              </form>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Cerrar
+            </button>
+            <button type="submit" class="btn btn-primary" (click)="onSubmit()" data-bs-dismiss="modal">Guardar Cooperativa</button>
+          </div>
+        </div>
+      </div>
+    </div>

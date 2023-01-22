@@ -1,4 +1,4 @@
 export const environment = {
-    production: false,
-    baseUrl: "http://localhost:4200"
-}
+  production: false,
+  baseUrl: 'http://movilmitog-001-site1.etempurl.com',
+};

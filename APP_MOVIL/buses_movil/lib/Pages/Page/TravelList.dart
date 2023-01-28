@@ -1,7 +1,9 @@
+import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-
+import '../../models/Buses.dart';
 import 'TravelInfromation.dart';
+import 'package:http/http.dart' as http;
 
 class TravelList extends StatefulWidget {
   TravelList({Key? key}) : super(key: key);
@@ -11,6 +13,25 @@ class TravelList extends StatefulWidget {
 }
 
 class _TravelListState extends State<TravelList> {
+  Future<List<Buses>> listBuses() async {
+      String url = 'https://actividadesuta.000webhostapp.com/Consulta.php';
+      var response = await http.get(Uri.parse(url));
+
+      if (response.statusCode == 200) {
+        //var data = jsonDecode(response.body);
+        print(response.body);
+      }
+
+      throw Exception('Error al obtener los datos de la API');
+    }
+
+     @override
+    void initState() {
+      super.initState();
+      listBuses();
+    }
+
+
   TextEditingController dateController = TextEditingController();
   String? buscar;
   @override
@@ -149,6 +170,13 @@ class _TravelListState extends State<TravelList> {
 
 //plantilla para cargar el listado de los buses
   Widget _listadoBuses(BuildContext context) {
+
+    List<Buses> listaBuses2 = [];  
+
+    
+
+   
+
     List<Buses> listaBuses = [
       Buses( "Coperativa", "Quito", "Ambato", "22/02/15-22:10","Disponible" ),
       Buses( "Coperativa", "Quito", "Ambato", "22/02/15-22:10","Lleno" ),
@@ -214,19 +242,3 @@ class _TravelListState extends State<TravelList> {
   }
 }
 
-//clase buses
-class Buses {
-  String? coperativa;
-  String? estado;
-  String? salida;
-  String? llegada;
-  String? fecha;
-
-  Buses( coperativa, estado, salida, llegada, fecha) {
-    this.coperativa = coperativa;
-    this.estado = estado;
-    this.salida = salida;
-    this.llegada = llegada;
-    this.fecha = fecha;
-  }
-}

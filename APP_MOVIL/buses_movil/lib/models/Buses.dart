@@ -6,11 +6,7 @@ class Buses {
   String? llegada;
   String? fecha;
 
-  Buses( coperativa, estado, salida, llegada, fecha) {
-    this.coperativa = coperativa;
-    this.estado = estado;
-    this.salida = salida;
-    this.llegada = llegada;
-    this.fecha = fecha;
-  }
+  Buses( {required this.coperativa, required this.estado, required this.salida, required this.llegada, required this.fecha} );
+
+
 }

@@ -10,10 +10,14 @@ class TravelInformation extends StatefulWidget {
 class _TravelInformationState extends State<TravelInformation> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Text(
-        "User",
-        style: TextStyle(fontFamily: "verdana", fontSize: 25.0),
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Información de Viajes"),
+      ),
+      body:Column(
+        children: [
+          Text("Provando"),
+        ],
       ),
     );
   }

@@ -1,9 +1,12 @@
-import 'dart:convert';
+
+import 'package:buses_movil/providers/buses_providers.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:provider/provider.dart';
 import '../../models/Buses.dart';
+import '../../rutas.dart';
 import 'TravelInfromation.dart';
-import 'package:http/http.dart' as http;
+
 
 class TravelList extends StatefulWidget {
   TravelList({Key? key}) : super(key: key);
@@ -13,29 +16,14 @@ class TravelList extends StatefulWidget {
 }
 
 class _TravelListState extends State<TravelList> {
-  Future<List<Buses>> listBuses() async {
-      String url = 'https://actividadesuta.000webhostapp.com/Consulta.php';
-      var response = await http.get(Uri.parse(url));
-
-      if (response.statusCode == 200) {
-        //var data = jsonDecode(response.body);
-        print(response.body);
-      }
-
-      throw Exception('Error al obtener los datos de la API');
-    }
-
-     @override
-    void initState() {
-      super.initState();
-      listBuses();
-    }
-
+    
+  List<Buses> _listaBuses=[];  
 
   TextEditingController dateController = TextEditingController();
   String? buscar;
   @override
   Widget build(BuildContext context) {
+    _listaBuses=Provider.of<BusesProviders>(context).BusesListado;
     return Scaffold(
       appBar: AppBar(
         title: Text("Listado de Viajes"),
@@ -171,21 +159,8 @@ class _TravelListState extends State<TravelList> {
 //plantilla para cargar el listado de los buses
   Widget _listadoBuses(BuildContext context) {
 
-    List<Buses> listaBuses2 = [];  
-
-    
-
-   
-
-    List<Buses> listaBuses = [
-      Buses( "Coperativa", "Quito", "Ambato", "22/02/15-22:10","Disponible" ),
-      Buses( "Coperativa", "Quito", "Ambato", "22/02/15-22:10","Lleno" ),
-      Buses( "Coperativa", "Quito", "Ambato", "22/02/15-22:10","Disponible" ),
-      Buses( "Coperativa", "Quito", "Ambato", "22/02/15-22:10","Lleno" ),
-    ];
-
     return ListView.builder(
-      itemCount: listaBuses.length,
+      itemCount: _listaBuses.length,
       itemBuilder: (context, index) {
         return Card(
           child: Padding(
@@ -196,9 +171,9 @@ class _TravelListState extends State<TravelList> {
                   Column(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
-                      Text( listaBuses[index].coperativa.toString() ),
+                      Text( _listaBuses[index].coperativa.toString() ),
                       Image.asset( "images/bus.png",width: 100, height: 100, ),
-                      Text( listaBuses[index].fecha.toString() ),
+                      Text( _listaBuses[index].fecha.toString() ),
                     ],
                   ),
                 ),
@@ -206,9 +181,9 @@ class _TravelListState extends State<TravelList> {
                 Expanded(child: 
                   Column(
                     children: [
-                      Text( "Salida:" +listaBuses[index].salida.toString() ),
-                      Text( "Llegada: " +listaBuses[index].estado.toString() ),
-                      Text( listaBuses[index].llegada.toString() ),
+                      Text( "Salida:" +_listaBuses[index].salida.toString() ),
+                      Text( "Llegada: " +_listaBuses[index].estado.toString() ),
+                      Text( _listaBuses[index].llegada.toString() ),
                       Card(
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
@@ -237,7 +212,7 @@ class _TravelListState extends State<TravelList> {
 
   _screenTravleInformation(){
     setState(() {
-      Navigator.of(context).push(MaterialPageRoute(builder: (context)=> TravelInformation() ));
+      Navigator.of(context).push(CustomRoute(widget: TravelInformation()));
     });
   }
 }

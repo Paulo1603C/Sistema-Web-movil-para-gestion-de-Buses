@@ -5,12 +5,14 @@ import { TicketsRoutingModule } from './tickets-routing.module';
 import { TicketsPageComponent } from './pages/tickets-page/tickets-page.component';
 import { SharedModule } from '../shared/shared.module';
 import { PurchasedTicketsComponent } from './pages/purchased-tickets/purchased-tickets.component';
+import { InfoTicketsComponent } from './pages/info-tickets/info-tickets.component';
 
 
 @NgModule({
   declarations: [
     TicketsPageComponent,
-    PurchasedTicketsComponent
+    PurchasedTicketsComponent,
+    InfoTicketsComponent
   ],
   imports: [
     CommonModule,
@@ -18,7 +20,8 @@ import { PurchasedTicketsComponent } from './pages/purchased-tickets/purchased-t
     SharedModule
   ],
   exports: [
-    PurchasedTicketsComponent
+    PurchasedTicketsComponent,
+    InfoTicketsComponent
   ]
 })
 export class TicketsModule { }

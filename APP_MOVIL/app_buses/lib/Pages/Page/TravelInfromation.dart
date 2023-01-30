@@ -51,11 +51,11 @@ class _TravelInformationState extends State<TravelInformation> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text("Frecuencia: " + _listaBuses[0].salida.toString()),
-                  Text("Hora de salida: " + _listaBuses[0].estado.toString()),
-                  Text("Fecha: " + _listaBuses[0].llegada.toString()),
-                  Text("Bus: " + _listaBuses[0].llegada.toString()),
-                  Text("Coperativa: " + _listaBuses[0].llegada.toString()),
+                  Text("Frecuencia: " + _listaBuses[0].salida.toString(),style:TextStyle(fontFamily: "VERDANA"),),
+                  Text("Hora de salida: " + _listaBuses[0].estado.toString(),style:TextStyle(fontFamily: "VERDANA")),
+                  Text("Fecha: " + _listaBuses[0].llegada.toString(),style:TextStyle(fontFamily: "VERDANA")),
+                  Text("Bus: " + _listaBuses[0].llegada.toString(),style:TextStyle(fontFamily: "VERDANA")),
+                  Text("Coperativa: " + _listaBuses[0].llegada.toString(),style:TextStyle(fontFamily: "VERDANA")),
                 ],
               ),
             ),
@@ -79,7 +79,7 @@ class _TravelInformationState extends State<TravelInformation> {
                   width: 110,
                   height: 110,
                 ),
-                Text("No disponible"),
+                Text("No disponible",style: TextStyle(fontSize: 18.0,fontFamily: "Baguet Script"),),
               ],
             ),
             Row(
@@ -89,7 +89,7 @@ class _TravelInformationState extends State<TravelInformation> {
                   width: 110,
                   height: 110,
                 ),
-                Text("Disponible"),
+                Text("Disponible",style: TextStyle(fontSize: 18.0,fontFamily: "Baguet Script"),),
               ],
             ),
           ],
@@ -129,12 +129,13 @@ class _TravelInformationState extends State<TravelInformation> {
 
 
   Widget botonCompra(BuildContext context){
-    return FloatingActionButton(onPressed: (){
+    return FloatingActionButton(
+      onPressed: (){
       //metodo hacia la nueva pantalla
       Navigator.of(context)
           .push(MaterialPageRoute(builder: (context) => PagoBoleto()));
-    },  
-    child: Icon( Icons.local_mall )
+      },  
+      child: Icon( Icons.local_mall ),
     );
   }
 }

@@ -7,6 +7,7 @@ import { SharedModule } from '../shared/shared.module';
 import { CoreModule } from '../core/core.module';
 import { ModalComponent } from './components/modal/modal.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CooperativeService } from '../cooperatives/service/cooperative.service';
 
 
 @NgModule({
@@ -21,6 +22,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     CoreModule,
     FormsModule,
     ReactiveFormsModule
+  ], providers:[
+    CooperativeService
   ]
 })
 export class BusesModule { }

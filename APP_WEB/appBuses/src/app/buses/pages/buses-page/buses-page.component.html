@@ -6,7 +6,75 @@
 
         <div class="display-area p-3" [ngClass]="{'display-area-shrink': sideNavStatus}">
             <div class="header_body">
-                <app-modal></app-modal>
+                <!-- Button trigger modal -->
+<button
+type="button"
+class="btn btn-primary mb-3"
+data-bs-toggle="modal"
+data-bs-target="#exampleModal"
+>
+Nueva Unidad
+</button>
+<!-- Modal -->
+<div
+      class="modal fade"
+      id="exampleModal"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Ingresar Nueva Unidad</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+              <form [formGroup]="busesForm" (ngSubmit)="onSubmit()">
+                <label class="form-label">Cooperativa</label>
+                <select class="form-select" formControlName="cooperativa" [(ngModel)]="opcionSeleccionada" (change)="capturar()">
+                    <option *ngFor="let data of dataCooperatives" [ngValue]="data.nombre">{{data.nombre}}</option>
+                </select>
+                <label class="form-label">Numero</label>
+                <input type="text" class="form-control" formControlName="numero" [(ngModel)]="numero" required>
+                <label class="form-label">Año</label>
+                <input type="number" class="form-control" formControlName="anio" [(ngModel)]="anio" required>
+                <label class="form-label">RamvCpn</label>
+                <input type="text" class="form-control" formControlName="ramvCpn" [(ngModel)]="ramvCpn">
+                <label class="form-label">Modelo Carroceria</label>
+                <input type="text" class="form-control" formControlName="modeloCar" [(ngModel)]="modeloCar">
+                <label class="form-label">Marca Chasis</label>
+                <input type="text" class="form-control" formControlName="marcaCh" [(ngModel)]="marcaCh">
+                <label class="form-label">Transporte</label>
+                <input type="text" class="form-control" formControlName="transporte" [(ngModel)]="transporte">
+                <label class="form-label">Pisos</label>
+                <input type="text" class="form-control" formControlName="pisos" [(ngModel)]="pisos">
+                <label class="form-label">Capacidad</label>
+                <input type="text" class="form-control" formControlName="capacidad" [(ngModel)]="capacidad">
+                <label class="form-label">Puertas</label>
+                <input type="text" class="form-control" formControlName="puertas" [(ngModel)]="puertas">
+                <label class="form-label">Ruta Imagen</label>
+                <input type="text" class="form-control" formControlName="rutaImagen" [(ngModel)]="rutaImagen">
+              </form>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Cerrar
+            </button>
+            <button type="submit" class="btn btn-primary" (click)="onSubmit()" data-bs-dismiss="modal">Guardar Cooperativa</button>
+          </div>
+        </div>
+      </div>
+    </div>
                 <app-search-bar></app-search-bar>
             </div>
             <app-table [data]="dataBuses" [columns]="columns" (onDelete)="deleteCooperative($event)"></app-table>

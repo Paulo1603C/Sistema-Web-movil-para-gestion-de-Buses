@@ -30,8 +30,8 @@ app-side-nav{
     justify-content: space-between;
 }
 
-app-modal{
-    margin-top: 10px;
+.btn-modal{
+    height: 20px;
 }
 
 .app-side-nav-open{

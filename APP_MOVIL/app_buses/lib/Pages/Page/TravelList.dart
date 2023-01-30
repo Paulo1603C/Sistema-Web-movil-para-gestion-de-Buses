@@ -1,12 +1,9 @@
-
-
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 import '../../models/Buses.dart';
 import '../../providers/buses_providers.dart';
 import 'TravelInfromation.dart';
-
 
 class TravelList extends StatefulWidget {
   TravelList({Key? key}) : super(key: key);
@@ -16,14 +13,13 @@ class TravelList extends StatefulWidget {
 }
 
 class _TravelListState extends State<TravelList> {
-    
-  List<Buses> _listaBuses=[];  
+  List<Buses> _listaBuses = [];
 
   TextEditingController dateController = TextEditingController();
   String? buscar;
   @override
   Widget build(BuildContext context) {
-    _listaBuses=Provider.of<BusesProviders>(context).BusesListado;
+    _listaBuses = Provider.of<BusesProviders>(context).BusesListado;
     return Scaffold(
       appBar: AppBar(
         title: Text("Listado de Viajes"),
@@ -33,10 +29,7 @@ class _TravelListState extends State<TravelList> {
         mainAxisSize: MainAxisSize.max,
         children: [
           Container(
-            padding: EdgeInsets.symmetric(
-              vertical: 15.0,
-              horizontal: 10.0
-            ),
+            padding: EdgeInsets.symmetric(vertical: 15.0, horizontal: 10.0),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               mainAxisSize: MainAxisSize.min,
@@ -50,7 +43,7 @@ class _TravelListState extends State<TravelList> {
             ),
           ),
           Expanded(
-            child:_listaItems(context),
+            child: _listaItems(context),
           ),
         ],
       ),
@@ -117,19 +110,18 @@ class _TravelListState extends State<TravelList> {
         suffix: IconButton(
           onPressed: () async {
             DateTime? picketDate = await showDatePicker(
-              context: context, 
-              initialDate: DateTime.now(), 
-              firstDate: DateTime(2000), 
-              lastDate: DateTime(2101));
-              if( picketDate == null ){
-                print("no hay fecha");
-              }else{
-
-                String formatoDate = DateFormat('yyyy-MM-dd').format(picketDate);
-                setState(() {
-                  dateController.text = formatoDate.toString();
-                });
-              }
+                context: context,
+                initialDate: DateTime.now(),
+                firstDate: DateTime(2000),
+                lastDate: DateTime(2101));
+            if (picketDate == null) {
+              print("no hay fecha");
+            } else {
+              String formatoDate = DateFormat('yyyy-MM-dd').format(picketDate);
+              setState(() {
+                dateController.text = formatoDate.toString();
+              });
+            }
           },
           icon: Icon(Icons.calendar_month),
         ),
@@ -140,26 +132,27 @@ class _TravelListState extends State<TravelList> {
 
 //devuelve un combo box
   Widget itemComboBox() {
-    List items = ["Coperativas", "Buses", "Otros"];
-    String? selectedValue = "Coperativas";
+    String? selectedColor = "Coperativas";
 
-    return DropdownButton(
-      hint: Text("Seleccione un item"),
-      items: items.map((value) {
-        return DropdownMenuItem(value: selectedValue, child: Text(value));
+    return DropdownButton<String>(
+      value: selectedColor,
+      items: <String>["Coperativas", "Buses", "Otros"]
+          .map<DropdownMenuItem<String>>((String value) {
+        return DropdownMenuItem<String>(
+          value: value,
+          child: Text(value),
+        );
       }).toList(),
-      onChanged: (String? newValue) {
+      onChanged: ( String? newValue) {
         setState(() {
-          selectedValue = newValue;
+          selectedColor = newValue;
         });
       },
-      onTap: () {},
     );
   }
 
 //plantilla para cargar el listado de los buses
   Widget _listadoBuses(BuildContext context) {
-
     return ListView.builder(
       itemCount: _listaBuses.length,
       itemBuilder: (context, index) {
@@ -169,35 +162,40 @@ class _TravelListState extends State<TravelList> {
             padding: EdgeInsets.all(8.0),
             child: Row(
               children: [
-                Expanded(child: 
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text( _listaBuses[index].coperativa.toString() ),
-                      Image.asset( "assets/images/bus.png",width: 100, height: 100, ),
-                      Text( _listaBuses[index].fecha.toString() ),
+                      Text(_listaBuses[index].coperativa.toString()),
+                      Image.asset(
+                        "assets/images/bus.png",
+                        width: 100,
+                        height: 100,
+                      ),
+                      Text(_listaBuses[index].fecha.toString()),
                     ],
                   ),
                 ),
-
-                Expanded(child: 
-                  Column(
+                Expanded(
+                  child: Column(
                     children: [
-                      Text( "Salida:" +_listaBuses[index].salida.toString() ),
-                      Text( "Llegada: " +_listaBuses[index].estado.toString() ),
-                      Text( _listaBuses[index].llegada.toString() ),
+                      Text("Salida:" + _listaBuses[index].salida.toString()),
+                      Text("Llegada: " + _listaBuses[index].estado.toString()),
+                      Text(_listaBuses[index].llegada.toString()),
                       Card(
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Text("5.55"),
-                            SizedBox(width: 8.0,),
+                            SizedBox(
+                              width: 8.0,
+                            ),
                             IconButton(
                               color: Color.fromARGB(255, 95, 75, 3),
-                              onPressed: (){
+                              onPressed: () {
                                 _screenTravleInformation();
-                              }, 
-                              icon: Icon( Icons.arrow_forward ),
+                              },
+                              icon: Icon(Icons.arrow_forward),
                             )
                           ],
                         ),
@@ -213,10 +211,10 @@ class _TravelListState extends State<TravelList> {
     );
   }
 
-  _screenTravleInformation(){
+  _screenTravleInformation() {
     setState(() {
-      Navigator.of(context).push(MaterialPageRoute(builder: (context)=> TravelInformation() ));
+      Navigator.of(context)
+          .push(MaterialPageRoute(builder: (context) => TravelInformation()));
     });
   }
 }
-

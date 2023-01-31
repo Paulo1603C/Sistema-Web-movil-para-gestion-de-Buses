@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "/SApclCW/2FOTmKHB8rXhihqR+bUZBFAiaInsx13UU/RCZk1iukolC+FgNt/zoI0ThIfRqkKCMyLEpUYL+y3mA==",
+  "dgSpecHash": "c8Vtgth2SIAmxkNE0LjejgiwHcEDxPvQ6AtLis5GbqmkeQyqCkUubATmBNzB49OR4QTfzO7OPB45a0vIRzl79w==",
   "success": true,
-  "projectFilePath": "C:\\APPWEB\\APIS\\WebApi\\Negocio\\Negocio.csproj",
+  "projectFilePath": "C:\\DAS\\PROYECTO FINAL\\SUB RAMAS\\desarrolloAPIs\\Proyecto-Buses-DAS\\APIS\\WebApi\\Negocio\\Negocio.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Mauricio\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\Mauricio\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",

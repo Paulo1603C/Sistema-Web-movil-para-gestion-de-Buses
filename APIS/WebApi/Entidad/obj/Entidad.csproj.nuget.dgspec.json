@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\APPWEB\\APIS\\WebApi\\Entidad\\Entidad.csproj": {}
+    "C:\\DAS\\PROYECTO FINAL\\SUB RAMAS\\desarrolloAPIs\\Proyecto-Buses-DAS\\APIS\\WebApi\\Entidad\\Entidad.csproj": {}
   },
   "projects": {
-    "C:\\APPWEB\\APIS\\WebApi\\Entidad\\Entidad.csproj": {
+    "C:\\DAS\\PROYECTO FINAL\\SUB RAMAS\\desarrolloAPIs\\Proyecto-Buses-DAS\\APIS\\WebApi\\Entidad\\Entidad.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\APPWEB\\APIS\\WebApi\\Entidad\\Entidad.csproj",
+        "projectUniqueName": "C:\\DAS\\PROYECTO FINAL\\SUB RAMAS\\desarrolloAPIs\\Proyecto-Buses-DAS\\APIS\\WebApi\\Entidad\\Entidad.csproj",
         "projectName": "Entidad",
-        "projectPath": "C:\\APPWEB\\APIS\\WebApi\\Entidad\\Entidad.csproj",
+        "projectPath": "C:\\DAS\\PROYECTO FINAL\\SUB RAMAS\\desarrolloAPIs\\Proyecto-Buses-DAS\\APIS\\WebApi\\Entidad\\Entidad.csproj",
         "packagesPath": "C:\\Users\\Mauricio\\.nuget\\packages\\",
-        "outputPath": "C:\\APPWEB\\APIS\\WebApi\\Entidad\\obj\\",
+        "outputPath": "C:\\DAS\\PROYECTO FINAL\\SUB RAMAS\\desarrolloAPIs\\Proyecto-Buses-DAS\\APIS\\WebApi\\Entidad\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

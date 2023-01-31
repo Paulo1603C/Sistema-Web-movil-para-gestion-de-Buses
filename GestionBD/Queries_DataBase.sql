@@ -146,3 +146,22 @@ Estado varchar(3) Default('ACT'),
 CONSTRAINT fk_Frecuencia_FrecuenciaParada FOREIGN KEY (IdFrecuencia) REFERENCES Frecuencia (Id),
 CONSTRAINT fk_Lugar_FrecuenciaParada FOREIGN KEY (IdLugar) REFERENCES Lugar (Id)
 );
+--Tabla Viaje
+CREATE TABLE Viaje
+(
+Id int IDENTITY(1,1) primary key ,
+IdFrecuenciaBus int,
+Fecha date,
+Estado varchar(15) Default('Creado'),
+CONSTRAINT fk_FrecuenciaBusViaje FOREIGN KEY (IdFrecuenciaBus) REFERENCES Frecuencia_Bus (Id)
+);
+--Tabla DetalleViaje
+CREATE TABLE DetalleViaje
+(
+Id int IDENTITY(1,1) primary key ,
+IdViaje int,
+IdAsiento int,
+Estado varchar(15) Default('Disponible'),
+CONSTRAINT fk_ViajeDetalleViaje FOREIGN KEY (IdViaje) REFERENCES Viaje (Id),
+CONSTRAINT fk_AsientDetalleViaje FOREIGN KEY (IdAsiento) REFERENCES Asiento (Id)
+);

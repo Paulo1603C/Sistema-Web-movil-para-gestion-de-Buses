@@ -1,0 +1,12 @@
+C:\APPWEB\APIS\WebApi\Entidad\bin\Debug\net6.0\Entidad.deps.json
+C:\APPWEB\APIS\WebApi\Entidad\bin\Debug\net6.0\Entidad.dll
+C:\APPWEB\APIS\WebApi\Entidad\bin\Debug\net6.0\Entidad.pdb
+C:\APPWEB\APIS\WebApi\Entidad\obj\Debug\net6.0\Entidad.csproj.AssemblyReference.cache
+C:\APPWEB\APIS\WebApi\Entidad\obj\Debug\net6.0\Entidad.GeneratedMSBuildEditorConfig.editorconfig
+C:\APPWEB\APIS\WebApi\Entidad\obj\Debug\net6.0\Entidad.AssemblyInfoInputs.cache
+C:\APPWEB\APIS\WebApi\Entidad\obj\Debug\net6.0\Entidad.AssemblyInfo.cs
+C:\APPWEB\APIS\WebApi\Entidad\obj\Debug\net6.0\Entidad.csproj.CoreCompileInputs.cache
+C:\APPWEB\APIS\WebApi\Entidad\obj\Debug\net6.0\Entidad.dll
+C:\APPWEB\APIS\WebApi\Entidad\obj\Debug\net6.0\refint\Entidad.dll
+C:\APPWEB\APIS\WebApi\Entidad\obj\Debug\net6.0\Entidad.pdb
+C:\APPWEB\APIS\WebApi\Entidad\obj\Debug\net6.0\ref\Entidad.dll

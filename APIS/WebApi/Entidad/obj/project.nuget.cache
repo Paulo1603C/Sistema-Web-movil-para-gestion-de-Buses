@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "HK1JSRyCbdLY6S+GbbjP1P9hjFP9Pq5Lvc2gYWeiWj6O6TpOQ38T8fqJb+Osak788L4t/lvmJJIQh30UCrLNTg==",
+  "dgSpecHash": "oEvnbrq+P2cD+OQp6usx/JDVz6M32h4lJ0l/CrGupbHsJJXS8cs5q5G7pkYrekdZ8NAi4K3xhCXntwAw1cMgrA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\User\\Desktop\\PROYECTO_DAS\\APIS\\WebApi\\Entidad\\Entidad.csproj",
+  "projectFilePath": "C:\\APPWEB\\APIS\\WebApi\\Entidad\\Entidad.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

@@ -8,4 +8,4 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = Entidad
-build_property.ProjectDir = C:\DAS\PROYECTO FINAL\SUB RAMAS\desarrolloAPIs\Proyecto-Buses-DAS\APIS\WebApi\Entidad\
+build_property.ProjectDir = c:\DAS\PROYECTO FINAL\SUB RAMAS\desarrolloWebGestion\Proyecto-Buses-DAS\APIS\WebApi\Entidad\

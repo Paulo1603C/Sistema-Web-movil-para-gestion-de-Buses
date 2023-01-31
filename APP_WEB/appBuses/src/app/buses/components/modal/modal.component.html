@@ -1,0 +1,63 @@
+<!-- Button trigger modal -->
+<button
+type="button"
+class="btn btn-primary mb-3"
+data-bs-toggle="modal"
+data-bs-target="#exampleModal"
+>
+Nueva Unidad
+</button>
+<!-- Modal -->
+<div
+      class="modal fade"
+      id="exampleModal"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Ingresar Nueva Unidad</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+              <form [formGroup]="busesForm" (ngSubmit)="onSubmit()">
+                <label class="form-label">Cooperativa</label>
+                <input type="text" class="form-control" formControlName="cooperatiVA" [(ngModel)]="cooperativa" required>
+                <label class="form-label">Numero</label>
+                <input type="text" class="form-control" formControlName="numero" [(ngModel)]="numero" required>
+                <label class="form-label">Año</label>
+                <input type="date" class="form-control" formControlName="anio" [(ngModel)]="anio" required>
+                <label class="form-label">RamvCpn</label>
+                <input type="number" class="form-control" formControlName="ramvCpn" [(ngModel)]="ramvCpn">
+                <label class="form-label">Modelo</label>
+                <input type="text" class="form-control" formControlName="modelo" [(ngModel)]="modelo">
+                <label class="form-label">Marca Chasis</label>
+                <input type="text" class="form-control" formControlName="marcaChasis" [(ngModel)]="marcaChasis">
+                <label class="form-label">Transporte</label>
+                <input type="text" class="form-control" formControlName="transporte" [(ngModel)]="transporte">
+                <label class="form-label">Capacidad</label>
+                <input type="text" class="form-control" formControlName="capacidad" [(ngModel)]="capacidad">
+                <label class="form-label">Puertas</label>
+                <input type="text" class="form-control" formControlName="puertas" [(ngModel)]="puertas">
+              </form>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Cerrar
+            </button>
+            <button type="submit" class="btn btn-primary" (click)="onSubmit()" data-bs-dismiss="modal">Guardar Cooperativa</button>
+          </div>
+        </div>
+      </div>
+    </div>

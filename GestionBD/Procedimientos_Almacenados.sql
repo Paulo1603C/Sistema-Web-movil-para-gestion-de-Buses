@@ -302,6 +302,161 @@ Update Usuario Set Estado='ELI' Where Id=@Id
 END
 GO
 
+--SP Gestion de cooperativas
+USE [MovilmitogBuses]
+GO
+
+/****** Object:  StoredProcedure [dbo].[sp_InsertarCooperativa]    Script Date: 30/01/2023 20:15:52 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+
+
+CREATE PROCEDURE [dbo].[sp_InsertarCooperativa] 
+@Nombre varchar(150),
+@Representante varchar(250),
+@Telefono varchar(25),
+@Correo varchar(50),
+@PaginaWeb varchar(50)
+AS
+BEGIN 
+INSERT INTO Cooperativa values(@Nombre, @Representante, @Telefono, @Correo, @PaginaWeb , 'ACT');
+SELECT SCOPE_IDENTITY();
+END
+GO
+
+
+
+USE [MovilmitogBuses]
+GO
+
+/****** Object:  StoredProcedure [dbo].[sp_ActualizarCooperativa]    Script Date: 30/01/2023 20:16:31 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+
+
+-- =============================================
+-- Author:		Movilmitog Team
+-- Create date: 13/01/2023
+-- Description:	Actualiza registro con estado Activo por Id
+-- =============================================
+CREATE PROCEDURE [dbo].[sp_ActualizarCooperativa]  
+@Id int,
+@Nombre varchar(150),
+@Representante varchar(250),
+@Telefono varchar(25),
+@Correo varchar(50),
+@PaginaWeb varchar(50)
+AS
+BEGIN 
+UPDATE Cooperativa SET Nombre=@Nombre, Representante=@Representante, Telefono=@Telefono, Correo=@Correo, PaginaWeb=@PaginaWeb 
+WHERE Id=@Id
+END
+GO
+
+
+USE [MovilmitogBuses]
+GO
+
+/****** Object:  StoredProcedure [dbo].[sp_ListarCooperativas]    Script Date: 30/01/2023 20:16:51 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+
+
+-- =============================================
+-- Author:		Movilmitog Team
+-- Create date: 13/01/2023
+-- Description:	Listar Cooperativas registrados con estado Activo
+-- =============================================
+CREATE PROCEDURE [dbo].[sp_ListarCooperativas]
+AS
+BEGIN 
+SELECT
+Id,
+Nombre,
+Representante,
+Telefono,
+Correo,
+PaginaWeb
+
+FROM Cooperativa
+WHERE Estado='ACT'
+END
+GO
+
+
+USE [MovilmitogBuses]
+GO
+
+/****** Object:  StoredProcedure [dbo].[sp_ObtenerCooperativaPorId]    Script Date: 30/01/2023 20:17:12 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+
+
+-- =============================================
+-- Author:		Movilmitog Team
+-- Create date: 13/01/2023
+-- Description:	Obtener Cooperativa registrado con estado Activo por Id
+-- =============================================
+CREATE PROCEDURE [dbo].[sp_ObtenerCooperativaPorId] 
+@Id int
+AS
+BEGIN 
+SELECT
+Id,
+Nombre,
+Representante,
+Telefono,
+Correo,
+PaginaWeb
+
+FROM Cooperativa
+WHERE Estado='ACT' and Id=@Id
+END
+GO
+
+
+USE [MovilmitogBuses]
+GO
+
+/****** Object:  StoredProcedure [dbo].[sp_EliminarCooperativa]    Script Date: 30/01/2023 20:17:37 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+
+
+-- =============================================
+-- Author:		Movilmitog Team
+-- Create date: 13/01/2023
+-- Description:	Elimina registro con estado Activo por Id
+-- =============================================
+CREATE PROCEDURE [dbo].[sp_EliminarCooperativa]  
+@Id int
+AS
+BEGIN 
+Update Cooperativa Set Estado='ELI' Where Id=@Id 
+END
+GO
+
+
 
 
 

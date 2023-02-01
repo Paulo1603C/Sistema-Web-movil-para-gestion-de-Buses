@@ -1,5 +1,9 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
+import { UsuarioService } from 'src/app/services/api/usuario.service';
+import { Usuario } from '../../model/usuarioModel';
+
 
 @Component({
   selector: 'app-modal',
@@ -7,20 +11,34 @@ import { FormControl, FormGroup } from '@angular/forms';
   styleUrls: ['./modal.component.css']
 })
 export class ModalComponent {
-  busesForm = new FormGroup({
+  selectedRol?: number;
+  selectedTd?:string;    
+  roles = [
+        { id: 1, name: 'Administrador - Cooperativa' },
+        { id: 2, name: 'Aprobador - ANT' },
+        { id: 3, name: 'Administrador - ANT' },
+        { id: 4, name: 'Oficinista - Cooperativa' },
+        { id: 5, name: 'Cliente' },
+    ];
+    tipoDoc= [
+      { id: 'C', name: 'Cédula'},
+      { id: 'R', name: 'Ruc' },
+      { id: 'P', name: 'Pasaporte' },
+  ];
+  usuarioForm = new FormGroup({
     id: new FormControl(''),
-    cooperativa: new FormControl(''),
-    numero: new FormControl(''),
-    anio: new FormControl(''),
-    ramvCpn: new FormControl(''),
-    modelo: new FormControl(''),
-    marcaChasis: new FormControl(''),
-    transporte: new FormControl(''),
-    pisos: new FormControl(''),
-    capacidad: new FormControl(''),
-    puertas: new FormControl(''),
-    imagen: new FormControl(''),
-  });
+    nombre: new FormControl(''),
+    apellido: new FormControl(''),
+    selectedTd: new FormControl(''),
+    numeroIdentificacion: new FormControl(''),
+    telefono: new FormControl(''),
+    correo: new FormControl(''),
+    direccion: new FormControl(''),
+    usuario: new FormControl(''),
+    password: new FormControl(''),
+    selectedRol: new FormControl(''),
+    rol: new FormControl('')
+      })
 
   dataCooperatives:any[] = [];
   listFields:string[] = ['#','Nombre','Representante','Teléfono','Correo','Pagina Web','Estado'] 
@@ -34,7 +52,8 @@ export class ModalComponent {
     {field: 'estado', title: 'Estado'}
   ];
 
-  constructor() { 
+  constructor(private ususarioService: UsuarioService, private router: Router) { 
+    
     this.loadClientes();
   }
 
@@ -49,21 +68,20 @@ export class ModalComponent {
     correo: ''
   }
 */
-id: string = ''
-cooperativa: string = ''
-numero: string = ''
-anio: string = ''
-ramvCpn: string = ''
-modelo: string = ''
-marcaChasis: string = ''
-transporte: string = ''
-pisos: string = ''
-capacidad: string = ''
-puertas: string = ''
-imagen: string = ''
+id: Number=0
+nombre: string=''
+apellido: string=''
+tipoIdentificacion: string=''
+numeroIdentificacion: string=''
+telefono: string=''
+correo: string=''
+direccion: string=''
+usuario: string=''
+password: string=''
+rol: string=''
 
   loadClientes(){
-    /*.clienteService.loadClients().subscribe(data => {
+   /* .clienteService.loadClients().subscribe(data => {
       this.dataClients = data;
       console.log(this.dataClients);
     }), (error: any) => {
@@ -72,24 +90,32 @@ imagen: string = ''
   }
 
   borrarCampos(){
-    this.busesForm.reset();
+    this.usuarioForm.reset();
   }
 
-  deleteCliente(rowId: string) {
-    /*
-    this.clienteService.deleteClient(rowId).subscribe(() => {
-      this.loadClientes();
-    });*/
-  }
+  
 
   onSubmit(){
-    /*
-    this.clienteService.saveClient(new Cliente(this.nombre,this.apellido,
-      this.fechaNacimiento,this.telefono, this.correo)).subscribe(() => {
-      this.loadClientes();
+    console.log(this.selectedRol);
+    var usuario=new Usuario(this.id,
+      this.nombre,
+      this.apellido,
+      this.selectedTd!,
+      this.numeroIdentificacion,
+      this.telefono,
+      this.correo,
+      this.direccion,
+      this.usuario,
+      this.password,
+      this.selectedRol!,
+      this.rol)
+      console.log(usuario);
+    this.ususarioService.guardarUsuario(usuario).subscribe(() => {
       this.borrarCampos();
+      window.location.reload();
     }), (error: any) => {
       console.log(error)
-    }*/
+    }
+    
   }
 }

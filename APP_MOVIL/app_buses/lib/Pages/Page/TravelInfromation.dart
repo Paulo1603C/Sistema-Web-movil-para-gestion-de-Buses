@@ -3,7 +3,8 @@ import 'package:provider/provider.dart';
 
 import '../../models/Buses.dart';
 import '../../providers/buses_providers.dart';
-import 'PagoBoleto.dart';
+import 'PagoBanco.dart';
+import 'informacionCompra.dart';
 
 class TravelInformation extends StatefulWidget {
   TravelInformation({Key? key}) : super(key: key);
@@ -14,6 +15,7 @@ class TravelInformation extends StatefulWidget {
 
 class _TravelInformationState extends State<TravelInformation> {
   List<Buses> _listaBuses = [];
+  List asientosSelect = [];
 
   @override
   Widget build(BuildContext context) {
@@ -31,25 +33,10 @@ class _TravelInformationState extends State<TravelInformation> {
             estadoAsientos(),
             
             asientosBus(),
-            Container(
-              height: 80,
-              padding: EdgeInsets.only(bottom: 20),
-              alignment: Alignment.bottomCenter,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  botonCompra(context),
-                  SizedBox(
-                    width: 10,
-                  ),
-                  botonCompra(context),
-                ],
-              ),
-            ),
           ],
         ),
       ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      floatingActionButton: botonCompra(context),
     );
   }
 
@@ -132,7 +119,8 @@ class _TravelInformationState extends State<TravelInformation> {
   }
 
   Widget asientosBus() {
-    int? _selectedIndex;
+    int?_selectedIndex = 0;
+    
 
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
@@ -150,11 +138,12 @@ class _TravelInformationState extends State<TravelInformation> {
                   child: InkWell(
                     onTap: () {
                       _selectedIndex = index;
-                      print(_selectedIndex);
+                      asientosSelect.add( _selectedIndex.toString()+"a" );
+                      print(asientosSelect);
                     },
                     child: Container(
                       child: Center(
-                        child: Text(index.toString()),
+                        child: Text(index.toString()+"a"),
                       ),
                     ),
                   ),
@@ -178,10 +167,11 @@ class _TravelInformationState extends State<TravelInformation> {
                 child: InkWell(
                   onTap: () {
                     _selectedIndex = index;
-                    print(_selectedIndex);
+                    asientosSelect.add( _selectedIndex.toString()+"b" );
+                    print(asientosSelect);
                   },
                   child: Center(
-                    child: Text(index.toString()),
+                    child: Text(index.toString()+"b"),
                   ),
                 ),
               );
@@ -197,7 +187,7 @@ class _TravelInformationState extends State<TravelInformation> {
       onPressed: () {
         //metodo hacia la nueva pantalla
         Navigator.of(context)
-            .push(MaterialPageRoute(builder: (context) => PagoBoleto()));
+            .push(MaterialPageRoute(builder: (context) => CompraAsientos( data: asientosSelect )));
       },
       child: Icon(Icons.local_mall),
     );

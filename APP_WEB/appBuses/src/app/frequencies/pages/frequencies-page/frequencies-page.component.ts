@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { FrecuenciaService } from 'src/app/services/api/frecuencia.service';
+import { Frecuencia } from '../../model/frecuenciaModel';
 
 @Component({
   selector: 'app-frequencies-page',
@@ -7,27 +10,38 @@ import { Component } from '@angular/core';
 })
 export class FrequenciesPageComponent {
   sideNavStatus: boolean = false
-  dataFrequencies: any[] = []
-  listFields:string[] = ['#','Ruta','Cooperativa','Hora de salida','Hora de arribo','Dia de la semana'] 
+  data: Frecuencia[] = []
+  listFields: string[] = [ 'ruta',  'cooperativa', 'horaSalida', 'horaArribo', 'habilitado',  'usuarioH', 'diaSemana', 'precio']
   columns: any[] = [
-    {field: '_id', title: 'ID' },
-    { field: 'ruta', title: 'Ruta' },
-    { field: 'cooperativa', title: 'Cooperativa' },
-    {field: 'hora_salida', title: 'Hora de salida'},
-    {field: 'hora_arribo', title: 'Hora de arribo'},
-    {field: 'dia_semana', title: 'Dia de la semana'}
+
+    { field: 'ruta', title: 'RUTA' },
+    { field: 'cooperativa', title: 'COOPERATIVA' },
+    { field: 'horaSalida', title: 'HORA DE SALIDA' },
+    { field: 'horaArribo', title: 'HORA DE LLEGADA' },
+    { field: 'habilitado', title: 'ESTADO HABIL.' },
+    { field: 'usuarioH', title: 'USUARIO HABIL.' },
+    { field: 'diaSemana', title: 'DIA' },
+    { field: 'precio', title: 'PRECIO' },
   ];
-
-  constructor() { }
-
+  constructor(private frecuenciaService: FrecuenciaService,
+    private router: Router) {
+  }
   ngOnInit(): void {
+    this.loadData()
   }
 
-  deleteCooperative(rowId: string) {
-    /*
-    this.clienteService.deleteClient(rowId).subscribe(() => {
-      this.loadClientes();
-    });
-    */
+  loadData() {
+    this.frecuenciaService.listaFrecuencias().subscribe(data => {
+      this.data = data
+      console.log(data)
+    }), (error: any) => {
+      console.log('se imprime error' + error)
+    }
   }
+  deleteData(rowId: Number) {
+    this.frecuenciaService.eliminarFrecuencia(rowId).subscribe(() => {
+      this.loadData();
+    });
+  }
+
 }

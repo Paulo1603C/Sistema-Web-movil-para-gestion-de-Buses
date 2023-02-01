@@ -26,19 +26,26 @@ Nueva Frecuencia
             ></button>
           </div>
           <div class="modal-body">
-              <form [formGroup]="frequenciesForm" (ngSubmit)="onSubmit()">
-                <label class="form-label">Ruta</label>
-                <input type="text" class="form-control" formControlName="ruta" [(ngModel)]="ruta" required>
-                <label class="form-label">Cooperativa</label>
-                <input type="text" class="form-control" formControlName="cooperativa" [(ngModel)]="cooperativa" required>
+              <form [formGroup]="dataForm" (ngSubmit)="onSubmit()">
+                <input type="hidden" class="form-control" formControlName="id" [(ngModel)]="id">
+                <label class="form-label">Seleccione una Ruta</label>
+                <ng-select [(ngModel)]="idRuta"  formControlName="idRuta">
+                  <ng-option  *ngFor="let ruta of rutas" [value]="ruta.id" >{{ruta.descripcion}}</ng-option>
+                </ng-select>
+                <label class="form-label">Seleccione la Cooperativa</label>
+                <ng-select [(ngModel)]="idCooperativa"  formControlName="idCooperativa">
+                  <ng-option  *ngFor="let cooperativa of cooperativas" [value]="cooperativa.id" >{{cooperativa.nombre}}</ng-option>
+                </ng-select>
                 <label class="form-label">Hora de salida</label>
-                <input type="time" class="form-control" formControlName="hora_salida" [(ngModel)]="hora_salida" required>
+                <input type="time" class="form-control" formControlName="horaSalida" [(ngModel)]="horaSalida" required>
                 <label class="form-label">Hora de arribo</label>
-                <input type="time" class="form-control" formControlName="hora_arribo" [(ngModel)]="hora_arribo">
-                <label class="form-label">Usuario</label>
-                <input type="text" class="form-control" formControlName="usuario" [(ngModel)]="usuario">
+                <input type="time" class="form-control" formControlName="horaArribo" [(ngModel)]="horaArribo">
                 <label class="form-label">Dia de la semana</label>
-                <input type="text" class="form-control" formControlName="dia_semana" [(ngModel)]="dia_semana">
+                <ng-select [(ngModel)]="diaSemana"  formControlName="diaSemana">
+                  <ng-option  *ngFor="let dia of diasSemana" [value]="dia.id" >{{dia.name}}</ng-option>
+                </ng-select>
+                <label class="form-label">Precio</label>
+                <input type="text" class="form-control" formControlName="precio" [(ngModel)]="precio">
               </form>
           </div>
           <div class="modal-footer">

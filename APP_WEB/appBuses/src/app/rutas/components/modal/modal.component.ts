@@ -23,10 +23,7 @@ export class ModalComponent {
     selectedLd: new FormControl('')
   })
   constructor(private rutaService: RutaService,
-    private router: Router,
     private lugarService: LugarService) {
-
-
   }
   id: Number = 0;
   descripcion: string = '';

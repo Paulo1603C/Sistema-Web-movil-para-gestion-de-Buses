@@ -13,7 +13,7 @@
                     {{fila[columna.field]}}
                 </td>
                 <td>
-                    <button class="btn btn-primary" [routerLink]="url">Seleccionar</button>
+                    <button class="btn btn-primary" (click)="seleccionar(fila['idViaje'])">Seleccionar</button>
                 </td>
             </tr>
         </tbody>

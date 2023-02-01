@@ -6,18 +6,27 @@ import { TicketsPageComponent } from './pages/tickets-page/tickets-page.componen
 import { SharedModule } from '../shared/shared.module';
 import { PurchasedTicketsComponent } from './pages/purchased-tickets/purchased-tickets.component';
 import { InfoTicketsComponent } from './pages/info-tickets/info-tickets.component';
+import { BuyTicketComponent } from './pages/buy-ticket/buy-ticket.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { PagosComponent } from './pages/pagos/pagos.component';
+import { NgxPayPalModule } from 'ngx-paypal';
 
 
 @NgModule({
   declarations: [
     TicketsPageComponent,
     PurchasedTicketsComponent,
-    InfoTicketsComponent
+    InfoTicketsComponent,
+    BuyTicketComponent,
+    PagosComponent
   ],
   imports: [
     CommonModule,
     TicketsRoutingModule,
-    SharedModule
+    SharedModule,
+    ReactiveFormsModule,
+    FormsModule,
+    NgxPayPalModule
   ],
   exports: [
     PurchasedTicketsComponent,

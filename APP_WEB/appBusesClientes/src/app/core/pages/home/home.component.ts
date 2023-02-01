@@ -8,7 +8,6 @@ import { ViajesService } from '../../services/viajes.service';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent {
-  url: string = ''
   dataTickets: any[] = []
   dataViajes: any[] = []
   mostrar:boolean = true
@@ -22,7 +21,7 @@ export class HomeComponent {
 
   columns: any[] = [
     {field: 'cooperativa', title: 'Cooperativa' },
-    {field: 'fecha', title: 'Fecha' },
+    {field: 'fecha', title: 'Fecha'},
     { field: 'horaSalida', title: 'Hora de Salida'},
     {field: 'numAsientosDisponibles', title: 'Asientos Disponibles'}
   ];
@@ -42,7 +41,6 @@ export class HomeComponent {
 
   capturarOrigen(){
     return this.origenSel.toString()
-
   }
 
   capturarDestino(){

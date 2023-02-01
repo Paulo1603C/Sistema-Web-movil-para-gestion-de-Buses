@@ -21,17 +21,8 @@
     </div>
 </div>
 <div class="mostrar-tickets" *ngIf="mostrar">
-    <p class="h2 p-3">Opciones disponibles para tu viaje de: </p>
+    <p class="h2 p-3">Opciones disponibles para tu viaje de: {{origenSel}} - {{destinoSel}}</p>
     <div class="tickets">
-        <app-table [data]="dataTickets" [columns]="columns" [url]="url"></app-table>
+        <app-table [data]="dataTickets" [columns]="columns"></app-table>
     </div>
-</div>
-<p class="h2 p-3">Proximos Viajes</p>
-<div class="body">
-    <app-card></app-card>
-    <app-card></app-card>
-    <app-card></app-card>
-    <app-card></app-card>
-    <app-card></app-card>
-    <app-card></app-card>
 </div>

@@ -4,31 +4,27 @@
             <h3>Compra tu pasaje interprovincial</h3>
         </div>
         <div class="card-body">
-            <p><i class="bi bi-geo-alt-fill"></i> Origen</p>
-            <select class="form-select" id="inputGroupSelect01">
-                <option selected>Choose...</option>
-                <option value="1">One</option>
-                <option value="2">Two</option>
-                <option value="3">Three</option>
-              </select><br>
-            <p><i class="bi bi-geo-alt-fill"></i> Destino</p>
-            <select class="form-select" id="inputGroupSelect01">
-                <option selected>Choose...</option>
-                <option value="1">One</option>
-                <option value="2">Two</option>
-                <option value="3">Three</option>
-              </select><br>
-            <p><i class="bi bi-calendar-date-fill"></i> Fecha de salida</p>
-            <input type="date" class="form-control" id="" placeholder=""><br>
-            <button type="submit" class="btn btn-primary mb-3">Buscar Pasaje 
-                <i class="bi bi-arrow-right-circle"></i>
-            </button>
+            <form [formGroup]="viajesForm" (ngSubmit)="onSubmit()">
+                <p><i class="bi bi-geo-alt-fill"></i> Origen</p>
+                <select class="form-select" formControlName="origen" [(ngModel)]="origenSel" (change)="capturarOrigen()">
+                    <option *ngFor="let data of dataViajes" [ngValue]="data.lugarOrigen">{{data.lugarOrigen}}</option>
+                </select><br>
+                <p><i class="bi bi-geo-alt-fill"></i> Destino</p>
+                <select class="form-select" formControlName="destino" [(ngModel)]="destinoSel" (change)="capturarDestino()">
+                    <option *ngFor="let data of dataViajes" [ngValue]="data.lugarDestino">{{data.lugarDestino}}</option>
+                </select><br>
+                <button type="submit" class="btn btn-primary mb-3">Buscar Pasaje 
+                    <i class="bi bi-arrow-right-circle"></i>
+                </button>
+            </form>
         </div>
     </div>
 </div>
-<p class="h2 p-3">Opciones disponibles para tu viaje</p>
-<div class="tickets">
-    
+<div class="mostrar-tickets" *ngIf="mostrar">
+    <p class="h2 p-3">Opciones disponibles para tu viaje de: </p>
+    <div class="tickets">
+        <app-table [data]="dataTickets" [columns]="columns" [url]="url"></app-table>
+    </div>
 </div>
 <p class="h2 p-3">Proximos Viajes</p>
 <div class="body">

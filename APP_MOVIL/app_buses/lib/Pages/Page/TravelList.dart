@@ -174,7 +174,12 @@ class _TravelListState extends State<TravelList> {
                           width: 100,
                           height: 100,
                         ),
-                        Text(_listaBuses[index].fecha.toString()),
+                        //Text(_listaBuses[index].estado.toString()),
+                        Container(
+                          padding: EdgeInsets.all(10),
+                          child: Card( child: Text("Disponible"), ),
+                        )
+                        
                       ],
                     ),
                   ),
@@ -182,8 +187,8 @@ class _TravelListState extends State<TravelList> {
                     child: Column(
                       children: [
                         Text("Salida:" + _listaBuses[index].salida.toString()),
-                        Text("Llegada: " + _listaBuses[index].estado.toString()),
-                        Text(_listaBuses[index].llegada.toString()),
+                        Text("Llegada: " + _listaBuses[index].llegada.toString()),
+                        Text("22/02/2023-9:00"),
                         Card(
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.center,

@@ -31,7 +31,6 @@ class _TravelInformationState extends State<TravelInformation> {
           children: [
             infoBus(),
             estadoAsientos(),
-            
             asientosBus(),
           ],
         ),
@@ -119,59 +118,63 @@ class _TravelInformationState extends State<TravelInformation> {
   }
 
   Widget asientosBus() {
-    int?_selectedIndex = 0;
-    
+    int? _selectedIndex = 0;
 
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         //fila 1 de asientos
-           Container(
-            height: 200,
-            width: 100,
-            child: GridView.count(
-              crossAxisCount: 2,
-              children: List.generate(24, (index) {
-                return Container(
-                  color: _selectedIndex == index ? Colors.redAccent : Colors.green,
-                  margin: EdgeInsets.all(4),
-                  child: InkWell(
-                    onTap: () {
-                      _selectedIndex = index;
-                      asientosSelect.add( _selectedIndex.toString()+"a" );
-                      print(asientosSelect);
-                    },
-                    child: Container(
-                      child: Center(
-                        child: Text(index.toString()+"a"),
-                      ),
-                    ),
-                  ),
-                );
-              }),
-            ),
-          ),
-        //fila 2 de asientos
-        SizedBox(width: 50,),
-
-        //Expanded(
-          Container(
+        Container(
           height: 200,
           width: 100,
           child: GridView.count(
             crossAxisCount: 2,
             children: List.generate(24, (index) {
               return Container(
-                color: _selectedIndex == index ? Colors.redAccent : Colors.green,
+                color: _selectedIndex == index
+                    ? Colors.redAccent
+                    : Colors.greenAccent,
                 margin: EdgeInsets.all(4),
                 child: InkWell(
                   onTap: () {
                     _selectedIndex = index;
-                    asientosSelect.add( _selectedIndex.toString()+"b" );
+                    asientosSelect.add(_selectedIndex.toString() + "a");
+                    print(asientosSelect);
+                  },
+                  child: Container(
+                    child: Center(
+                      child: Text(index.toString() + "a"),
+                    ),
+                  ),
+                ),
+              );
+            }),
+          ),
+        ),
+        //fila 2 de asientos
+        SizedBox(
+          width: 50,
+        ),
+
+        //Expanded(
+        Container(
+          height: 200,
+          width: 100,
+          child: GridView.count(
+            crossAxisCount: 2,
+            children: List.generate(24, (index) {
+              return Container(
+                color:
+                    _selectedIndex == index ? Colors.redAccent : Colors.greenAccent,
+                margin: EdgeInsets.all(4),
+                child: InkWell(
+                  onTap: () {
+                    _selectedIndex = index;
+                    asientosSelect.add(_selectedIndex.toString() + "b");
                     print(asientosSelect);
                   },
                   child: Center(
-                    child: Text(index.toString()+"b"),
+                    child: Text(index.toString() + "b"),
                   ),
                 ),
               );
@@ -186,10 +189,36 @@ class _TravelInformationState extends State<TravelInformation> {
     return FloatingActionButton(
       onPressed: () {
         //metodo hacia la nueva pantalla
-        Navigator.of(context)
-            .push(MaterialPageRoute(builder: (context) => CompraAsientos( data: asientosSelect )));
+        //metodo hacia la nueva pantalla
+        if (asientosSelect.length == 0) {
+          _showAlertDialog();
+        } else {
+          Navigator.of(context).push(MaterialPageRoute(
+              builder: (context) => CompraAsientos(data: asientosSelect)));
+        }
       },
       child: Icon(Icons.local_mall),
+    );
+  }
+
+  void _showAlertDialog() {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: Text('Sin infirmación para compra'),
+          content:
+              Text('Selecione sus asientos de prefecrencia antes de continuar'),
+          actions: <Widget>[
+            ElevatedButton(
+              child: Text('Aceptar'),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+          ],
+        );
+      },
     );
   }
 }

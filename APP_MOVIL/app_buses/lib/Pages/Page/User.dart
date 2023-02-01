@@ -49,7 +49,7 @@ class User extends StatelessWidget {
                 Column(
                   children: [
                     Text(
-                      'Seguidores',
+                      'Viajes',
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: 18.0,

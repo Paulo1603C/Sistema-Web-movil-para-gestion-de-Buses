@@ -15,7 +15,7 @@ class BusesProviders extends ChangeNotifier{
       var response = await http.get( Uri.parse('http://movilmitog-001-site1.etempurl.com/api/Bus' ));
       var decodeBuses = jsonDecode(response.body) as List;
       decodeBuses.forEach((busess) { 
-        listBuses.add( Buses(coperativa: busess['cooperativa'], estado: busess['cooperativa'], salida: busess['cooperativa'], llegada: busess['transporte'], fecha: busess['modeloCar']));
+        listBuses.add( Buses(coperativa: busess['cooperativa'], estado: busess['numero'], salida: busess['transporte'], llegada: busess['transporte'], fecha: busess['modeloCar']));
       });
       
       _listBuses = listBuses;

@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-
-
 class LogIn extends StatefulWidget {
   LogIn({Key? key}) : super(key: key);
 
@@ -123,23 +121,59 @@ class _LogInState extends State<LogIn> {
           //
           _usu = _nombre.text;
           _con = _contrasena.text;
-          if (_usu == '' || _con == '') {
-            print("vacio");
+          if (_usu != '' || _con != '') {
+            if (_usu == 'DToapanta' || _con == '0990') {
+              GoRouter.of(context).go('/travellist');
+            } else {
+              _showAlertDialog();
+            }
           } else {
-            GoRouter.of(context).go('/travellist');
+            _showAlertDialog2();
           }
         },
       ),
     );
   }
 
-  _verContrasena() {
-    setState(() {
-      print('ver contraseña');
-    });
+  _showAlertDialog() {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: Text('Sin Informacion '),
+          content: Text('NO se encontro el usuario'),
+          actions: <Widget>[
+            ElevatedButton(
+              child: Text('Aceptar'),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+          ],
+        );
+      },
+    );
   }
 
+  _verContrasena() {}
 
-
-
+  _showAlertDialog2() {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: Text('Informacion Incompleta'),
+          content: Text('Complete los campos necesarios para continuar'),
+          actions: <Widget>[
+            ElevatedButton(
+              child: Text('Aceptar'),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+          ],
+        );
+      },
+    );
+  }
 }

@@ -107,6 +107,36 @@ namespace Datos
             return asientoEntidads;
 
         }
+        public static List<AsientoEntidad> ListarAsientosPorIdBus(int IdBus)
+        {
+            List<AsientoEntidad> asientoEntidads = new List<AsientoEntidad>();
+            SqlConnection connection = new SqlConnection(cadenaConexion);
+            connection.Open();
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = connection;
+            cmd.CommandType = CommandType.Text;
+            cmd.CommandText = @"EXEC sp_ListarAsientosPorIdBus @IdBus";
+            cmd.Parameters.AddWithValue("IdBus", IdBus);
+            using (var dr = cmd.ExecuteReader())
+            {
+                while (dr.Read())
+                {
+                    AsientoEntidad asientoEntidad = new AsientoEntidad();
+                    asientoEntidad.Id = Convert.ToInt32(dr["Id"].ToString());
+                    asientoEntidad.IdBus = Convert.ToInt32(dr["IdBus"].ToString());
+                    asientoEntidad.Bus = dr["Bus"].ToString();
+                    asientoEntidad.Orden = Convert.ToInt32(dr["Orden"].ToString());
+                    asientoEntidad.Descripcion = dr["Descripcion"].ToString();
+                    asientoEntidad.IdCategoria = Convert.ToInt32(dr["IdCategoria"].ToString());
+                    asientoEntidad.Categoria = dr["Categoria"].ToString();
+
+                    asientoEntidads.Add(asientoEntidad);
+                }
+            }
+            connection.Close();
+            return asientoEntidads;
+
+        }
 
         public static AsientoEntidad ObtenerAsientoPorId(int Id)
         {

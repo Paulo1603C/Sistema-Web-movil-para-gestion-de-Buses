@@ -3,7 +3,8 @@ import 'package:provider/provider.dart';
 
 import '../../models/Buses.dart';
 import '../../providers/buses_providers.dart';
-import 'PagoBoleto.dart';
+import 'PagoBanco.dart';
+import 'informacionCompra.dart';
 
 class TravelInformation extends StatefulWidget {
   TravelInformation({Key? key}) : super(key: key);
@@ -14,6 +15,7 @@ class TravelInformation extends StatefulWidget {
 
 class _TravelInformationState extends State<TravelInformation> {
   List<Buses> _listaBuses = [];
+  List asientosSelect = [];
 
   @override
   Widget build(BuildContext context) {
@@ -23,11 +25,16 @@ class _TravelInformationState extends State<TravelInformation> {
       appBar: AppBar(
         title: Text("Información de Viajes"),
       ),
-      body: Column(
-        children: [
-          infoBus(),
-          estadoAsientos(),
-        ],
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          children: [
+            infoBus(),
+            estadoAsientos(),
+            
+            asientosBus(),
+          ],
+        ),
       ),
       floatingActionButton: botonCompra(context),
     );
@@ -51,11 +58,18 @@ class _TravelInformationState extends State<TravelInformation> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text("Frecuencia: " + _listaBuses[0].salida.toString(),style:TextStyle(fontFamily: "VERDANA"),),
-                  Text("Hora de salida: " + _listaBuses[0].estado.toString(),style:TextStyle(fontFamily: "VERDANA")),
-                  Text("Fecha: " + _listaBuses[0].llegada.toString(),style:TextStyle(fontFamily: "VERDANA")),
-                  Text("Bus: " + _listaBuses[0].llegada.toString(),style:TextStyle(fontFamily: "VERDANA")),
-                  Text("Coperativa: " + _listaBuses[0].llegada.toString(),style:TextStyle(fontFamily: "VERDANA")),
+                  Text(
+                    "Frecuencia: " + _listaBuses[0].salida.toString(),
+                    style: TextStyle(fontFamily: "VERDANA"),
+                  ),
+                  Text("Hora de salida: " + _listaBuses[0].estado.toString(),
+                      style: TextStyle(fontFamily: "VERDANA")),
+                  Text("Fecha: " + _listaBuses[0].llegada.toString(),
+                      style: TextStyle(fontFamily: "VERDANA")),
+                  Text("Bus: " + _listaBuses[0].llegada.toString(),
+                      style: TextStyle(fontFamily: "VERDANA")),
+                  Text("Coperativa: " + _listaBuses[0].llegada.toString(),
+                      style: TextStyle(fontFamily: "VERDANA")),
                 ],
               ),
             ),
@@ -79,7 +93,10 @@ class _TravelInformationState extends State<TravelInformation> {
                   width: 110,
                   height: 110,
                 ),
-                Text("No disponible",style: TextStyle(fontSize: 18.0,fontFamily: "Baguet Script"),),
+                Text(
+                  "No disponible",
+                  style: TextStyle(fontSize: 18.0, fontFamily: "Baguet Script"),
+                ),
               ],
             ),
             Row(
@@ -89,53 +106,90 @@ class _TravelInformationState extends State<TravelInformation> {
                   width: 110,
                   height: 110,
                 ),
-                Text("Disponible",style: TextStyle(fontSize: 18.0,fontFamily: "Baguet Script"),),
+                Text(
+                  "Disponible",
+                  style: TextStyle(fontSize: 18.0, fontFamily: "Baguet Script"),
+                ),
               ],
             ),
           ],
         ),
-        
-        
       ],
     );
   }
 
   Widget asientosBus() {
+    int?_selectedIndex = 0;
+    
+
     return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
       children: [
         //fila 1 de asientos
-        Expanded(
-          child: GridView.count(
-            crossAxisCount: 3,
-            children: [
-              Container(color: Colors.black),
-              Container(color: Colors.black),
-            ]
+           Container(
+            height: 200,
+            width: 100,
+            child: GridView.count(
+              crossAxisCount: 2,
+              children: List.generate(24, (index) {
+                return Container(
+                  color: _selectedIndex == index ? Colors.redAccent : Colors.green,
+                  margin: EdgeInsets.all(4),
+                  child: InkWell(
+                    onTap: () {
+                      _selectedIndex = index;
+                      asientosSelect.add( _selectedIndex.toString()+"a" );
+                      print(asientosSelect);
+                    },
+                    child: Container(
+                      child: Center(
+                        child: Text(index.toString()+"a"),
+                      ),
+                    ),
+                  ),
+                );
+              }),
+            ),
           ),
-        ),
         //fila 2 de asientos
-        Expanded(
+        SizedBox(width: 50,),
+
+        //Expanded(
+          Container(
+          height: 200,
+          width: 100,
           child: GridView.count(
-            crossAxisCount: 3,
-            children: [
-              Container(color: Colors.black),
-              Container(color: Colors.black),
-            ]
+            crossAxisCount: 2,
+            children: List.generate(24, (index) {
+              return Container(
+                color: _selectedIndex == index ? Colors.redAccent : Colors.green,
+                margin: EdgeInsets.all(4),
+                child: InkWell(
+                  onTap: () {
+                    _selectedIndex = index;
+                    asientosSelect.add( _selectedIndex.toString()+"b" );
+                    print(asientosSelect);
+                  },
+                  child: Center(
+                    child: Text(index.toString()+"b"),
+                  ),
+                ),
+              );
+            }),
           ),
-        ),
+        )
       ],
     );
   }
 
-
-  Widget botonCompra(BuildContext context){
+  Widget botonCompra(BuildContext context) {
     return FloatingActionButton(
-      onPressed: (){
-      //metodo hacia la nueva pantalla
-      Navigator.of(context)
-          .push(MaterialPageRoute(builder: (context) => PagoBoleto()));
-      },  
-      child: Icon( Icons.local_mall ),
+      onPressed: () {
+        //metodo hacia la nueva pantalla
+        Navigator.of(context)
+            .push(MaterialPageRoute(builder: (context) => CompraAsientos( data: asientosSelect )));
+      },
+      child: Icon(Icons.local_mall),
     );
   }
 }

@@ -1,0 +1,53 @@
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#exampleModal">
+  Nuevo Usuario
+</button>
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Ingresar Nuevo Usuario</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="usuarioForm" (ngSubmit)="onSubmit()">
+          <input type="hidden" class="form-control" formControlName="id" [(ngModel)]="id">
+          <label class="form-label">NOMBRE</label>
+          <input type="text" class="form-control" formControlName="nombre" [(ngModel)]="nombre">
+          <label class="form-label">APELLIDO</label>
+          <input type="text" class="form-control" formControlName="apellido" [(ngModel)]="apellido">
+          <label class="form-label">TIPO DE IDENTIFICACION</label>
+          <ng-select [(ngModel)]="selectedTd"  formControlName="selectedTd">
+            <ng-option  *ngFor="let doc of tipoDoc" [value]="doc.id"  Selected>{{doc.name}}</ng-option>
+          </ng-select>
+          <label class="form-label">NUMERO IDENTIFICACION</label>
+          <input type="text" class="form-control" formControlName="numeroIdentificacion"
+            [(ngModel)]="numeroIdentificacion">
+          <label class="form-label">TELEFONO</label>
+          <input type="text" class="form-control" formControlName="telefono" [(ngModel)]="telefono">
+          <label class="form-label">CORREO</label>
+          <input type="text" class="form-control" formControlName="correo" [(ngModel)]="correo">
+          <label class="form-label">DIRECCION</label>
+          <input type="text" class="form-control" formControlName="direccion" [(ngModel)]="direccion">
+          <label class="form-label">USUARIO</label>
+          <input type="text" class="form-control" formControlName="usuario" [(ngModel)]="usuario">
+          <label class="form-label">CONTRASEÑA</label>
+          <input type="password" class="form-control" formControlName="password" [(ngModel)]="password">
+          <label class="form-label">ROL</label>
+          <ng-select [(ngModel)]="selectedRol" formControlName="selectedRol">
+            <ng-option  *ngFor="let rol of roles" [value]="rol.id" >{{rol.name}}</ng-option>
+          </ng-select>
+
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+          Cerrar
+        </button>
+        <button type="submit" class="btn btn-primary" (click)="onSubmit()" data-bs-dismiss="modal">Guardar
+          Usuario</button>
+      </div>
+    </div>
+  </div>
+</div>

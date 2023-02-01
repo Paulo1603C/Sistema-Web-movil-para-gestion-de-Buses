@@ -14,21 +14,45 @@ export class MenuService {
   private list: IMenu[] = [
     {
       number: '1',
+      name: 'Usuarios',
+      icon: 'bi bi-person-fill-gear',
+      url: '/usuarios'
+    },
+    {
+      number: '2',
       name: 'Cooperativas',
       icon: 'bi bi-building',
       url: '/cooperativas'
     },
     {
-      number: '2',
+      number: '3',
+      name: 'Rutas',
+      icon: 'bi bi-bezier2',
+      url: '/rutas'
+    },
+    {
+      number: '4',
       name: 'Buses',
       icon: 'bi bi-bus-front',
       url: '/buses'
     },
     {
-      number: '3',
+      number: '5',
       name: 'Frecuencias',
-      icon: 'bi bi-signpost-split-fill',
+      icon: 'bi bi-calendar-day',
       url: '/frecuencias'
+    },
+    {
+      number: '6',
+      name: 'Asigna Frecuencia-Bus',
+      icon: 'bi bi-signpost-split-fill',
+      url: '/frecuenciabus'
+    },
+    {
+      number: '7',
+      name: 'Validacion Pago',
+      icon: 'bi bi-cash-coin',
+      url: '/validarpago'
     }
   ]
 

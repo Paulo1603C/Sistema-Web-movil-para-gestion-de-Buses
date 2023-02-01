@@ -36,6 +36,7 @@ export class LoginComponent implements OnInit{
     this.userService.authentication(new User(this.username, this.password)).subscribe(data => {
       this.token = data.token
       this.login = false;
+      localStorage.setItem('IdUsuario', data.usuario.id);
       this.router.navigate(['/inicio'])
     }),(error:any) => {
       console.log(error)

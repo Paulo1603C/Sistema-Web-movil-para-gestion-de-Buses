@@ -1,0 +1,63 @@
+<button
+type="button"
+class="btn btn-primary mb-3"
+data-bs-toggle="modal"
+data-bs-target="#exampleModal"
+>
+Nueva Frecuencia
+</button>
+<!-- Modal -->
+<div
+      class="modal fade"
+      id="exampleModal"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Ingresar Nueva Frecuencia</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+              <form [formGroup]="dataForm" (ngSubmit)="onSubmit()">
+                <input type="hidden" class="form-control" formControlName="id" [(ngModel)]="id">
+                <label class="form-label">Seleccione una Ruta</label>
+                <ng-select [(ngModel)]="idRuta"  formControlName="idRuta">
+                  <ng-option  *ngFor="let ruta of rutas" [value]="ruta.id" >{{ruta.descripcion}}</ng-option>
+                </ng-select>
+                <label class="form-label">Seleccione la Cooperativa</label>
+                <ng-select [(ngModel)]="idCooperativa"  formControlName="idCooperativa">
+                  <ng-option  *ngFor="let cooperativa of cooperativas" [value]="cooperativa.id" >{{cooperativa.nombre}}</ng-option>
+                </ng-select>
+                <label class="form-label">Hora de salida</label>
+                <input type="time" class="form-control" formControlName="horaSalida" [(ngModel)]="horaSalida" required>
+                <label class="form-label">Hora de arribo</label>
+                <input type="time" class="form-control" formControlName="horaArribo" [(ngModel)]="horaArribo">
+                <label class="form-label">Dia de la semana</label>
+                <ng-select [(ngModel)]="diaSemana"  formControlName="diaSemana">
+                  <ng-option  *ngFor="let dia of diasSemana" [value]="dia.id" >{{dia.name}}</ng-option>
+                </ng-select>
+                <label class="form-label">Precio</label>
+                <input type="text" class="form-control" formControlName="precio" [(ngModel)]="precio">
+              </form>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Cerrar
+            </button>
+            <button type="submit" class="btn btn-primary" (click)="onSubmit()" data-bs-dismiss="modal">Guardar Frecuencia</button>
+          </div>
+        </div>
+      </div>
+    </div>

@@ -1,0 +1,31 @@
+<mat-toolbar fxLayout fxLayoutAlign="space-between center">
+  <h3>{{ title }}</h3>
+  <button mat-icon-button mat-dialog-close>
+    <mat-icon>close</mat-icon>
+  </button>
+</mat-toolbar>
+<mat-dialog-content>
+  <form [formGroup]="group" fxLayout="column" (ngSubmit)="onSubmit()">
+    <input type="hidden"  formControlName="id" [(ngModel)]="id">
+    <input type="hidden"  formControlName="idBus" [(ngModel)]="idBus">
+    <mat-form-field appearance="outline">
+      <mat-label>ORDEN</mat-label>
+      <input type="text" matInput formControlName="orden" required>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+        <mat-label>DESCRIPCION/UBICACION</mat-label>
+        <input type="text" matInput formControlName="descripcion" required>
+      </mat-form-field>
+    <ng-select [(ngModel)]="idCategoria" formControlName="idCategoria">
+      <ng-option *ngFor="let categoria of categorias" [value]="categoria.id">{{categoria.nombre}}</ng-option>
+    </ng-select>
+  </form>
+  <div fxLayout fxLayoutAlign="end" fxLayoutGap="10px">
+    <button mat-raised-button color="primary" type="button" (click)="onSubmit()">
+      Grabar
+    </button>
+    <button mat-button type="button" color="primary" mat-dialog-close>
+      Cancelar
+    </button>
+  </div>
+</mat-dialog-content>

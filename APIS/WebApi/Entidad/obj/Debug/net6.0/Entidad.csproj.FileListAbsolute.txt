@@ -1,0 +1,24 @@
+C:\APPWEB\APIS\WebApi\Entidad\bin\Debug\net6.0\Entidad.deps.json
+C:\APPWEB\APIS\WebApi\Entidad\bin\Debug\net6.0\Entidad.dll
+C:\APPWEB\APIS\WebApi\Entidad\bin\Debug\net6.0\Entidad.pdb
+C:\APPWEB\APIS\WebApi\Entidad\obj\Debug\net6.0\Entidad.csproj.AssemblyReference.cache
+C:\APPWEB\APIS\WebApi\Entidad\obj\Debug\net6.0\Entidad.GeneratedMSBuildEditorConfig.editorconfig
+C:\APPWEB\APIS\WebApi\Entidad\obj\Debug\net6.0\Entidad.AssemblyInfoInputs.cache
+C:\APPWEB\APIS\WebApi\Entidad\obj\Debug\net6.0\Entidad.AssemblyInfo.cs
+C:\APPWEB\APIS\WebApi\Entidad\obj\Debug\net6.0\Entidad.csproj.CoreCompileInputs.cache
+C:\APPWEB\APIS\WebApi\Entidad\obj\Debug\net6.0\Entidad.dll
+C:\APPWEB\APIS\WebApi\Entidad\obj\Debug\net6.0\refint\Entidad.dll
+C:\APPWEB\APIS\WebApi\Entidad\obj\Debug\net6.0\Entidad.pdb
+C:\APPWEB\APIS\WebApi\Entidad\obj\Debug\net6.0\ref\Entidad.dll
+C:\DAS\PROYECTO FINAL\SUB RAMAS\desarrolloAPIs\Proyecto-Buses-DAS\APIS\WebApi\Entidad\bin\Debug\net6.0\Entidad.deps.json
+C:\DAS\PROYECTO FINAL\SUB RAMAS\desarrolloAPIs\Proyecto-Buses-DAS\APIS\WebApi\Entidad\bin\Debug\net6.0\Entidad.dll
+C:\DAS\PROYECTO FINAL\SUB RAMAS\desarrolloAPIs\Proyecto-Buses-DAS\APIS\WebApi\Entidad\bin\Debug\net6.0\Entidad.pdb
+C:\DAS\PROYECTO FINAL\SUB RAMAS\desarrolloAPIs\Proyecto-Buses-DAS\APIS\WebApi\Entidad\obj\Debug\net6.0\Entidad.csproj.AssemblyReference.cache
+C:\DAS\PROYECTO FINAL\SUB RAMAS\desarrolloAPIs\Proyecto-Buses-DAS\APIS\WebApi\Entidad\obj\Debug\net6.0\Entidad.GeneratedMSBuildEditorConfig.editorconfig
+C:\DAS\PROYECTO FINAL\SUB RAMAS\desarrolloAPIs\Proyecto-Buses-DAS\APIS\WebApi\Entidad\obj\Debug\net6.0\Entidad.AssemblyInfoInputs.cache
+C:\DAS\PROYECTO FINAL\SUB RAMAS\desarrolloAPIs\Proyecto-Buses-DAS\APIS\WebApi\Entidad\obj\Debug\net6.0\Entidad.AssemblyInfo.cs
+C:\DAS\PROYECTO FINAL\SUB RAMAS\desarrolloAPIs\Proyecto-Buses-DAS\APIS\WebApi\Entidad\obj\Debug\net6.0\Entidad.csproj.CoreCompileInputs.cache
+C:\DAS\PROYECTO FINAL\SUB RAMAS\desarrolloAPIs\Proyecto-Buses-DAS\APIS\WebApi\Entidad\obj\Debug\net6.0\Entidad.dll
+C:\DAS\PROYECTO FINAL\SUB RAMAS\desarrolloAPIs\Proyecto-Buses-DAS\APIS\WebApi\Entidad\obj\Debug\net6.0\refint\Entidad.dll
+C:\DAS\PROYECTO FINAL\SUB RAMAS\desarrolloAPIs\Proyecto-Buses-DAS\APIS\WebApi\Entidad\obj\Debug\net6.0\Entidad.pdb
+C:\DAS\PROYECTO FINAL\SUB RAMAS\desarrolloAPIs\Proyecto-Buses-DAS\APIS\WebApi\Entidad\obj\Debug\net6.0\ref\Entidad.dll

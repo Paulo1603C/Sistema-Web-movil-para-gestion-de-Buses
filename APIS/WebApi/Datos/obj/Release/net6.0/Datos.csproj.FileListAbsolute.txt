@@ -1,0 +1,15 @@
+C:\APPWEB\APIS\WebApi\Datos\bin\Release\net6.0\Datos.deps.json
+C:\APPWEB\APIS\WebApi\Datos\bin\Release\net6.0\Datos.dll
+C:\APPWEB\APIS\WebApi\Datos\bin\Release\net6.0\Datos.pdb
+C:\APPWEB\APIS\WebApi\Datos\bin\Release\net6.0\Entidad.dll
+C:\APPWEB\APIS\WebApi\Datos\bin\Release\net6.0\Entidad.pdb
+C:\APPWEB\APIS\WebApi\Datos\obj\Release\net6.0\Datos.csproj.AssemblyReference.cache
+C:\APPWEB\APIS\WebApi\Datos\obj\Release\net6.0\Datos.GeneratedMSBuildEditorConfig.editorconfig
+C:\APPWEB\APIS\WebApi\Datos\obj\Release\net6.0\Datos.AssemblyInfoInputs.cache
+C:\APPWEB\APIS\WebApi\Datos\obj\Release\net6.0\Datos.AssemblyInfo.cs
+C:\APPWEB\APIS\WebApi\Datos\obj\Release\net6.0\Datos.csproj.CoreCompileInputs.cache
+C:\APPWEB\APIS\WebApi\Datos\obj\Release\net6.0\Datos.csproj.CopyComplete
+C:\APPWEB\APIS\WebApi\Datos\obj\Release\net6.0\Datos.dll
+C:\APPWEB\APIS\WebApi\Datos\obj\Release\net6.0\refint\Datos.dll
+C:\APPWEB\APIS\WebApi\Datos\obj\Release\net6.0\Datos.pdb
+C:\APPWEB\APIS\WebApi\Datos\obj\Release\net6.0\ref\Datos.dll

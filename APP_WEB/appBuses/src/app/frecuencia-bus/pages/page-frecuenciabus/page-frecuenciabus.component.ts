@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { FrecuenciaBusbusService } from 'src/app/services/api/frecuenciabus.service';
+import { Frecuenciabus } from '../../model/frecuenciabusModel';
 
 @Component({
   selector: 'app-page-frecuenciabus',
@@ -7,27 +9,31 @@ import { Component } from '@angular/core';
 })
 export class PageFrecuenciabusComponent {
   sideNavStatus: boolean = false
-  dataBuses: any[] = []
-  listFields:string[] = ['#','Cooperativa','Numero','Año','Modelo','Capacidad'] 
+  data: Frecuenciabus[] = []
+  listFields: string[] = ['frecuencia','bus','usuarioH']
   columns: any[] = [
-    {field: '_id', title: 'ID' },
-    { field: 'cooperativa', title: 'Cooperativa' },
-    {field: 'numero', title: 'Numero'},
-    {field: 'año', title: 'Año'},
-    {field: 'modelo', title: 'Modelo'},
-    {field: 'capacidad', title: 'Capacidad'},
+    { field: 'frecuencia', title: 'Frecuencia' },
+    { field: 'bus', title: 'Bus' },
+    { field: 'usuarioH', title: 'Usuario Responsable' },
   ];
-
-  constructor() { }
-
-  ngOnInit(): void {
+  constructor(private frecuenciabusService: FrecuenciaBusbusService) {
   }
 
-  deleteCooperative(rowId: string) {
-    /*
-    this.clienteService.deleteClient(rowId).subscribe(() => {
-      this.loadClientes();
+  ngOnInit(): void {
+    this.loadData()
+  }
+
+  loadData() {
+    this.frecuenciabusService.listaFrecuenciaBuss().subscribe(data => {
+      this.data = data
+      console.log(data)
+    }), (error: any) => {
+      console.log('se imprime error' + error)
+    }
+  }
+  deleteData(rowId: Number) {
+    this.frecuenciabusService.eliminarFrecuenciaBus(rowId).subscribe(() => {
+      this.loadData();
     });
-    */
   }
 }

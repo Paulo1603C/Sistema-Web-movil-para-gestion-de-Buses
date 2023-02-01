@@ -1,19 +1,21 @@
+
+
 import 'package:flutter/material.dart';
+import 'package:qr_flutter/qr_flutter.dart';
 
-class TicketReport extends StatefulWidget {
-  TicketReport({Key? key}) : super(key: key);
-
-  @override
-  State<TicketReport> createState() => _TicketReportState();
-}
-
-class _TicketReportState extends State<TicketReport> {
+class TicketReport extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar:  AppBar(
-        title: Text("Reprote del Boleto"),
+      appBar: AppBar(
+        title: Text('Código QR'),
+      ),
+      body: Center(
+        child: QrImage(
+          data: 'Datos del QR',
+        ),
       ),
     );
   }
 }
+

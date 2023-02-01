@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { RutaService } from 'src/app/services/api/ruta.service';
+import { Ruta } from '../../model/rutaModel';
 
 @Component({
   selector: 'app-page-ruta',
@@ -7,27 +9,31 @@ import { Component } from '@angular/core';
 })
 export class PageRutaComponent {
   sideNavStatus: boolean = false
-  dataBuses: any[] = []
-  listFields:string[] = ['#','Cooperativa','Numero','Año','Modelo','Capacidad'] 
+  data: Ruta[] = []
+  listFields: string[] = ['descripcion', 'lugarOrigen', 'lugarDestino']
   columns: any[] = [
-    {field: '_id', title: 'ID' },
-    { field: 'cooperativa', title: 'Cooperativa' },
-    {field: 'numero', title: 'Numero'},
-    {field: 'año', title: 'Año'},
-    {field: 'modelo', title: 'Modelo'},
-    {field: 'capacidad', title: 'Capacidad'},
+    { field: 'descripcion', title: 'DESCRIPCION' },
+    { field: 'lugarOrigen', title: 'LUGAR DE ORIGEN' },
+    { field: 'lugarDestino', title: 'LUGAR DE DESTINO' },
   ];
-
-  constructor() { }
-
-  ngOnInit(): void {
+  constructor(private rutaService: RutaService) {
   }
 
-  deleteCooperative(rowId: string) {
-    /*
-    this.clienteService.deleteClient(rowId).subscribe(() => {
-      this.loadClientes();
+  ngOnInit(): void {
+    this.loadData()
+  }
+
+  loadData() {
+    this.rutaService.listaRutas().subscribe(data => {
+      this.data = data
+      console.log(data)
+    }), (error: any) => {
+      console.log('se imprime error' + error)
+    }
+  }
+  deleteData(rowId: Number) {
+    this.rutaService.eliminarRuta(rowId).subscribe(() => {
+      this.loadData();
     });
-    */
   }
 }

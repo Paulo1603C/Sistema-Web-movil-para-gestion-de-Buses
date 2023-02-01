@@ -40,18 +40,6 @@ export class ModalComponent {
     rol: new FormControl('')
       })
 
-  dataCooperatives:any[] = [];
-  listFields:string[] = ['#','Nombre','Representante','Teléfono','Correo','Pagina Web','Estado'] 
-  columns: any[] = [
-    {field: '_id', title: 'ID' },
-    {field: 'nombre', title: 'Nombre' },
-    {field: 'representante', title: 'Representante'},
-    {field: 'telefono', title: 'Teléfono'},
-    {field: 'correo', title: 'Correo'},
-    {field: 'paginaweb', title: 'Pagina Web'},
-    {field: 'estado', title: 'Estado'}
-  ];
-
   constructor(private ususarioService: UsuarioService, private router: Router) { 
     
     this.loadClientes();
@@ -96,7 +84,7 @@ rol: string=''
   
 
   onSubmit(){
-    console.log(this.selectedRol);
+
     var usuario=new Usuario(this.id,
       this.nombre,
       this.apellido,

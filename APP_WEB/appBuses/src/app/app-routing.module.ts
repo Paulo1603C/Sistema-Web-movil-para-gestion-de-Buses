@@ -13,6 +13,7 @@ const routes: Routes = [
   {path : 'frecuenciabus', loadChildren:() => import('./frecuencia-bus/frecuencia-bus.module').then(m => m.FrecuenciaBusModule)},
   {path : 'validarpago', loadChildren:() => import('./validar-pago/validar-pago.module').then(m => m.ValidarPagoModule)},
   {path : 'asientos', loadChildren:() => import('./asientos/asientos.module').then(m => m.AsientosModule)},
+  {path : 'asientos/:IdBus', loadChildren:() => import('./asientos/asientos.module').then(m => m.AsientosModule)},
 ]
 
 @NgModule({

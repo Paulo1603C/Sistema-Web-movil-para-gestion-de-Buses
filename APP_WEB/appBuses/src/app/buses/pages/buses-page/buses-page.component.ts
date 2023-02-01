@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { NgbNavLink } from '@ng-bootstrap/ng-bootstrap';
 import { BusService } from 'src/app/services/api/bus.service';
 import { Bus } from '../../model/busModel';
@@ -25,7 +26,8 @@ export class BusesPageComponent implements OnInit {
     { field: 'capacidad', title: 'CAPACIDAD ASIENTOS' },
     { field: 'puertas', title: 'PUERTAS' },
      ];
-  constructor(private busService: BusService) {
+  constructor(private busService: BusService,
+    private router: Router) {
   }
   ngOnInit(): void {
     this.loadData()
@@ -43,5 +45,8 @@ export class BusesPageComponent implements OnInit {
     this.busService.eliminarBus(rowId).subscribe(() => {
       this.loadData();
     });
+  }
+  abrir(IdBus: Number) {
+    this.router.navigate(['/asientos/'+IdBus])
   }
 }

@@ -6,10 +6,29 @@
 
         <div class="display-area p-3" [ngClass]="{'display-area-shrink': sideNavStatus}">
             <div class="header_body">
-                <app-modal></app-modal>
+              
                 <app-search-bar></app-search-bar>
             </div>
-            <app-table [data]="dataBuses" [columns]="columns" (onDelete)="deleteCooperative($event)"></app-table>
+            <app-table [data]="data" [columns]="columns" (onDelete)="deleteData($event)" (onAbrir)="abrir($event)">
+                <ng-container matColumnDef="actions">
+                    <th mat-header-cell *matHeaderCellDef>Acciones</th>
+                    <td mat-cell *matCellDef="let row" class="align-right">
+                        <button
+                            mat-icon-button
+                            color="primary"
+                            matTooltip="EDITAR">
+                        </button>
+                        <button
+                            mat-icon-button
+                            color="accent"
+                            matTooltip="ELIMINAR">
+                        </button>                    
+                    </td>
+                </ng-container>
+                <button type="button" class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    Nueva Unidad
+                  </button>
+            </app-table>
         </div>
     </main>
 </div>

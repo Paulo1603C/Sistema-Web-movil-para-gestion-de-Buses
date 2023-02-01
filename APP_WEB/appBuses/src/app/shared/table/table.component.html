@@ -8,7 +8,7 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let fila of data | paginate: { itemsPerPage: 6, currentPage: pageActual }; index as i ">
+            <tr  *ngFor="let fila of data | paginate: { itemsPerPage: 6, currentPage: pageActual }; index as i  " (click)="abrir(fila['id'])">
                 <td *ngFor="let columna of columns">
                     {{fila[columna.field]}}
                 </td>

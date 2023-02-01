@@ -8,6 +8,8 @@ import { CoreModule } from '../core/core.module';
 import { ModalComponent } from './components/modal/modal.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgSelectModule } from '@ng-select/ng-select';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatButtonModule } from '@angular/material/button';
 
 
 @NgModule({
@@ -22,7 +24,10 @@ import { NgSelectModule } from '@ng-select/ng-select';
     CoreModule,
     FormsModule,
     ReactiveFormsModule,
-    NgSelectModule
+    NgSelectModule,
+    MatFormFieldModule,
+    MatButtonModule
+    
   ]
 })
 export class BusesModule { }

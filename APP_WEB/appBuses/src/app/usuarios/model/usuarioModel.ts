@@ -27,5 +27,6 @@ export class Usuario{
         this.idRol=idRol;
         this.rol=rol;
     }
+    
 
 }

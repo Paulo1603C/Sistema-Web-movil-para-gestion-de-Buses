@@ -37,6 +37,7 @@ export class LoginComponent implements OnInit{
       this.token = data.token
       this.login = false;
       localStorage.setItem('IdUsuario', data.usuario.id);
+      localStorage.setItem('token', data.token);
       this.router.navigate(['/inicio'])
     }),(error:any) => {
       console.log(error)

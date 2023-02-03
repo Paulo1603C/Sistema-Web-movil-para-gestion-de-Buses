@@ -5,6 +5,9 @@
                 <th scope="col" *ngFor="let columna of columns">
                     {{columna.title}}
                 </th>
+                <th>
+                    OPCIONES
+                </th>
             </tr>
         </thead>
         <tbody>
@@ -14,7 +17,10 @@
                 </td>
                 <td>
                     <button class="btn btn-danger" (click)="deleteRow(fila['id'])">Eliminar</button>
+                    -
+                    <button class="btn btn-warning" (click)="editRow(fila['id'])">Editar</button>
                 </td>
+                    
             </tr>
         </tbody>
     </table>

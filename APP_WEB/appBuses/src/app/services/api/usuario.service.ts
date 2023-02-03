@@ -24,4 +24,7 @@ export class UsuarioService {
   eliminarUsuario(idUsuario: Number): Observable<any> {
     return this.http.delete(this.baseUrl+this.url+idUsuario);
   }
+  actualizarUsuario(idUsuario: string,usuario: Usuario): Observable<any> {
+    return this.http.put(this.baseUrl+this.url+idUsuario,usuario);
+  }
 }

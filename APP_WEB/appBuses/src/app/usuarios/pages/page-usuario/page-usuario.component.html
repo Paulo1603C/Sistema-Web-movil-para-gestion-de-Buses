@@ -1,15 +1,58 @@
 <div class="container-fluid g-0">
-    <app-header (sideNavToggle)="sideNavStatus=$event"></app-header>
+  <app-header (sideNavToggle)="sideNavStatus=$event"></app-header>
 
-    <main>
-        <app-side-nav [sideNavStatus]="sideNavStatus" [ngClass]="{'app-side-nav-open': sideNavStatus}"></app-side-nav>
+  <main>
+    <app-side-nav [sideNavStatus]="sideNavStatus" [ngClass]="{'app-side-nav-open': sideNavStatus}"></app-side-nav>
 
-        <div class="display-area p-3" [ngClass]="{'display-area-shrink': sideNavStatus}">
-            <div class="header_body">
-                <app-modal></app-modal>
-                <app-search-bar></app-search-bar>
-            </div>
-            <app-table [data]="data" [columns]="columns" (onDelete)="deleteData($event)"></app-table>
+    <div class="display-area p-3" [ngClass]="{'display-area-shrink': sideNavStatus}">
+      <div class="header_body">
+        <app-modal></app-modal>
+        <app-search-bar></app-search-bar>
+      </div>
+      <app-table [data]="data" [columns]="columns" (onDelete)="deleteData($event)" (onEdit)="abrir($event)">
+      </app-table>
+      <ng-template #content let-c="close" let-d="dismiss">
+        <div class="modal-header">
+          <h4 class="modal-title" id="modal-basic-title">EDITAR USUARIO</h4>
+          <button type="button" class="btn-close" aria-label="Close" (click)="d('Cross click')"></button>
         </div>
-    </main>
+        <div class="modal-body">
+          <form>
+            <div class="mb-3">
+                <input type="hidden" class="form-control" [formControl]="form_id">
+                <label class="form-label">NOMBRE</label>
+                <input type="text" class="form-control" [formControl]="form_nombre">
+                <label class="form-label">APELLIDO</label>
+                <input type="text" class="form-control" [formControl]="form_apellido">
+                <label class="form-label">TIPO DE IDENTIFICACIÓN</label>
+                <ng-select calss="form-control" [formControl]="form_tipoIdentificacion">
+                    <ng-option  *ngFor="let doc of tipoDoc" [value]="doc.id"  Selected>{{doc.name}}</ng-option>
+                  </ng-select>
+                <label class="form-label">NUMERO DE IDENTIFICACIÓN</label>
+                <input type="text" class="form-control" [formControl]="form_numeroIdentificacion">
+                <label class="form-label">TELEFONO</label>
+                <input type="text" class="form-control" [formControl]="form_telefono">
+                <label class="form-label">CORREO</label>
+                <input type="text" class="form-control" [formControl]="form_correo">
+                <label class="form-label">DIRECCION</label>
+                <input type="text" class="form-control" [formControl]="form_direccion">
+                <label class="form-label">NICK</label>
+                <input type="text" class="form-control" [formControl]="form_usuario">
+                <label class="form-label">CONTRASEÑA</label>
+                <input type="text" class="form-control" [formControl]="form_password">
+                <label class="form-label">ROL</label>
+                <ng-select class="form-control" [formControl]="form_idRol">
+                    <ng-option  *ngFor="let rol of roles" [value]="rol.id.toString()" >{{rol.nombre}}</ng-option>
+                  </ng-select>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline-dark" (click)="onSubmit()">Actualizar</button>
+        </div>
+      </ng-template>
+    </div>
+
+  </main>
+
 </div>

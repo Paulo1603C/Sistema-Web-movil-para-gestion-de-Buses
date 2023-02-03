@@ -11,6 +11,7 @@ export class TableComponent implements OnInit {
   @Input() columns!:any[];
 
   @Output() onDelete: EventEmitter<any> = new EventEmitter(); 
+  @Output() onEdit: EventEmitter<any> = new EventEmitter(); 
   @Output() onAbrir: EventEmitter<any> = new EventEmitter(); 
   
   pageActual: number = 1;
@@ -21,6 +22,9 @@ export class TableComponent implements OnInit {
   }
  abrir(rowId:number){
   this.onAbrir.emit(rowId);
+ }
+ editRow(rowId:number){
+  this.onEdit.emit(rowId);
  }
   deleteRow(rowId:number): void{
     Swal.fire({

@@ -8,11 +8,12 @@ import { IMenu, MenuService } from 'src/app/services/menu/menu.service';
 })
 export class SideNavComponent implements OnInit {
   @Input() sideNavStatus: boolean = false
+  IdRol:string=localStorage.getItem('IdRol')!;
 
   list: IMenu[]
 
   constructor(private menuService:MenuService) { 
-    this.list = this.menuService.getMenu();
+    this.list = this.menuService.getMenu(this.IdRol);
    }
 
   ngOnInit(): void {

@@ -10,21 +10,51 @@ import { Usuario } from '../../model/usuarioModel';
   templateUrl: './modal.component.html',
   styleUrls: ['./modal.component.css']
 })
+
 export class ModalComponent {
+
   selectedRol?: number;
-  selectedTd?:string;    
-  roles = [
+  selectedTd?:string;
+  roles: any[]=[];    
+  roles1 = [
         { id: 1, name: 'Administrador - Cooperativa' },
-        { id: 2, name: 'Aprobador - ANT' },
-        { id: 3, name: 'Administrador - ANT' },
         { id: 4, name: 'Oficinista - Cooperativa' },
         { id: 5, name: 'Cliente' },
     ];
+    roles3 = [
+      { id: 1, name: 'Administrador - Cooperativa' },
+      { id: 2, name: 'Aprobador - ANT' },
+      { id: 3, name: 'Administrador - ANT' }
+  ];
+  roles6 = [
+    { id: 1, name: 'Administrador - Cooperativa' },
+    { id: 2, name: 'Aprobador - ANT' },
+    { id: 3, name: 'Administrador - ANT' },
+    { id: 4, name: 'Oficinista - Cooperativa' },
+    { id: 5, name: 'Cliente' },
+];
     tipoDoc= [
       { id: 'C', name: 'Cédula'},
       { id: 'R', name: 'Ruc' },
       { id: 'P', name: 'Pasaporte' },
   ];
+
+  asignarRolesPermitidos(){
+    let IdRol=localStorage.getItem('IdRol');
+    switch (IdRol) {
+      case '1':
+        this.roles=this.roles1;
+        break;
+        case '3':
+          this.roles=this.roles3;
+        break;
+        case '6':
+          this.roles=this.roles6;
+        break;
+      default:
+        break;
+    }
+  }
   usuarioForm = new FormGroup({
     id: new FormControl(''),
     nombre: new FormControl(''),
@@ -41,7 +71,7 @@ export class ModalComponent {
       })
 
   constructor(private ususarioService: UsuarioService, private router: Router) { 
-    
+    this.asignarRolesPermitidos();
     this.loadClientes();
   }
 

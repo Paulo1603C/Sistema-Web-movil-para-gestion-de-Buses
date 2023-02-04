@@ -17,7 +17,6 @@
                         <div class="input-field">
                             <input type="password" formControlName="password" [(ngModel)]="password" class="input" id="password" required>
                             <label for="password">Contraseña</label>
-                            <p *ngIf="login" class="error">Correo o Contraseña incorrectos</p>
                             <span><a href="#">¿Olvidaste tu contraseña?</a></span>
                         </div>
                         <button type="submit" class="btn btn-primary w-100">Ingresar</button>
@@ -27,3 +26,4 @@
         </div>
     </div>
 </div>
+<app-toasts aria-live="polite" aria-atomic="true"></app-toasts>

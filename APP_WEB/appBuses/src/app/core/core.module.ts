@@ -8,6 +8,8 @@ import { SideNavComponent } from './components/side-nav/side-nav.component';
 import { LoginComponent } from './pages/login/login.component';
 import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ToastContainer } from './pages/login/toast.component';
+import { NgbToastModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 @NgModule({
@@ -15,14 +17,16 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     MainPageComponent,
     HeaderComponent,
     SideNavComponent,
-    LoginComponent
+    LoginComponent,
+    ToastContainer
   ],
   imports: [
     CommonModule,
     CoreRoutingModule,
     RouterModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    NgbToastModule
   ],
   exports:[
     MainPageComponent,

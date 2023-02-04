@@ -9,7 +9,7 @@ import { User } from '../models/user.model';
 export class UserService {
 
   url = 'http://movilmitog-001-site1.etempurl.com/api/Login/Validar'
-
+ 
   constructor(private http:HttpClient) { }
 
   authentication(user:User): Observable<any>{

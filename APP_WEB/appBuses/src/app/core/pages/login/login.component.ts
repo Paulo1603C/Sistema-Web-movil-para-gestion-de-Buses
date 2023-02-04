@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
+import { ToastService } from 'src/app/services/others/toast.service';
 import { environment } from 'src/environments/environments';
 import { User } from '../../models/user.model';
 import { UserService } from '../../services/user.service';
@@ -12,7 +13,6 @@ import { UserService } from '../../services/user.service';
 })
 export class LoginComponent implements OnInit{
   url = environment.baseUrl
-  login = false
   token = ''
 
   userForm = new FormGroup({
@@ -20,7 +20,7 @@ export class LoginComponent implements OnInit{
     password: new FormControl('')
   })
 
-  constructor(private userService: UserService, private router: Router) { }
+  constructor(private userService: UserService, private router: Router, public toastService:ToastService) { }
 
   ngOnInit(): void {
   }
@@ -33,17 +33,20 @@ export class LoginComponent implements OnInit{
   password:string = ''
 
   onSubmit(){
-    this.userService.authentication(new User(this.username, this.password)).subscribe(data => {
+    this.userService.authentication(new User(this.username, this.password)).subscribe((data) => {
       this.token = data.token
-      this.login = false;
       localStorage.setItem('IdUsuario', data.usuario.id);
+      localStorage.setItem('IdRol', data.usuario.idRol);
       localStorage.setItem('token', data.token);
+      this.toastService.show('Bienvenido '+data.usuario.nombre+' ' +data.usuario.apellido);
       this.router.navigate(['/inicio'])
-    }),(error:any) => {
+    },(error:any) => {
+      this.toastService.show(error.error.result, {
+        classname: 'bg-danger text-light',
+        delay: 5000,
+      });
       console.log(error)
-    }
-    if(this.token == ''){
-      this.login = true
-    }
+    });
+
   }
 }

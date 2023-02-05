@@ -11,6 +11,7 @@ export class TableComponent implements OnInit {
   @Input() columns!:any[];
 
   @Output() onDelete: EventEmitter<any> = new EventEmitter(); 
+  @Output() onAbrir: EventEmitter<any> = new EventEmitter(); 
   
   pageActual: number = 1;
   
@@ -18,7 +19,9 @@ export class TableComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
+ abrir(rowId:number){
+  this.onAbrir.emit(rowId);
+ }
   deleteRow(rowId:number): void{
     Swal.fire({
       title: 'Esta Seguro de eliminar el registro?',

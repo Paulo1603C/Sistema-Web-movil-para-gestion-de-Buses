@@ -25,7 +25,7 @@ class _TravelListState extends State<TravelList> {
         title: Text("Listado de Viajes"),
       ),
       body: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.center,
         mainAxisSize: MainAxisSize.max,
         children: [
           Container(
@@ -153,61 +153,69 @@ class _TravelListState extends State<TravelList> {
 
 //plantilla para cargar el listado de los buses
   Widget _listadoBuses(BuildContext context) {
-    return ListView.builder(
-      itemCount: _listaBuses.length,
-      itemBuilder: (context, index) {
-        return Card(
-          color: Color.fromRGBO(255, 250, 240, 1),
-          child: Padding(
-            padding: EdgeInsets.all(8.0),
-            child: Row(
-              children: [
-                Expanded(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(_listaBuses[index].coperativa.toString()),
-                      Image.asset(
-                        "assets/images/bus.png",
-                        width: 100,
-                        height: 100,
-                      ),
-                      Text(_listaBuses[index].fecha.toString()),
-                    ],
-                  ),
-                ),
-                Expanded(
-                  child: Column(
-                    children: [
-                      Text("Salida:" + _listaBuses[index].salida.toString()),
-                      Text("Llegada: " + _listaBuses[index].estado.toString()),
-                      Text(_listaBuses[index].llegada.toString()),
-                      Card(
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Text("5.55"),
-                            SizedBox(
-                              width: 8.0,
-                            ),
-                            IconButton(
-                              color: Color.fromARGB(255, 95, 75, 3),
-                              onPressed: () {
-                                _screenTravleInformation();
-                              },
-                              icon: Icon(Icons.arrow_forward),
-                            )
-                          ],
+    return Padding(
+      padding: const EdgeInsets.all(10.0),
+      child: ListView.builder(
+        itemCount: _listaBuses.length,
+        itemBuilder: (context, index) {
+          return Card(
+            color: Color.fromRGBO(255, 250, 240, 1),
+            child: Padding(
+              padding: EdgeInsets.all(8.0),
+              child: Row(
+                children: [
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Text(_listaBuses[index].coperativa.toString()),
+                        Image.asset(
+                          "assets/images/bus.png",
+                          width: 100,
+                          height: 100,
                         ),
-                      ),
-                    ],
+                        //Text(_listaBuses[index].estado.toString()),
+                        Container(
+                          padding: EdgeInsets.all(10),
+                          child: Card( child: Text("Disponible"), ),
+                        )
+                        
+                      ],
+                    ),
                   ),
-                ),
-              ],
+                  Expanded(
+                    child: Column(
+                      children: [
+                        Text("Salida:" + _listaBuses[index].salida.toString()),
+                        Text("Llegada: " + _listaBuses[index].llegada.toString()),
+                        Text("22/02/2023-9:00"),
+                        Card(
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text("5.55"),
+                              SizedBox(
+                                width: 8.0,
+                              ),
+                              IconButton(
+                                color: Color.fromARGB(255, 95, 75, 3),
+                                onPressed: () {
+                                  _screenTravleInformation();
+                                },
+                                icon: Icon(Icons.arrow_forward),
+                              )
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
             ),
-          ),
-        );
-      },
+          );
+        },
+      ),
     );
   }
 

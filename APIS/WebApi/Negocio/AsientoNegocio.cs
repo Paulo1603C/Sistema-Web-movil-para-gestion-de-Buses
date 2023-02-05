@@ -23,6 +23,10 @@ namespace Negocio
         {
             return AsientoDatos.ListarAsientos();
         }
+        public static List<AsientoEntidad> ListarAsientosPorIdBus(int IdBus)
+        {
+            return AsientoDatos.ListarAsientosPorIdBus(IdBus);
+        }
 
         public static AsientoEntidad ObtenerAsientoPorId(int Id)
         {

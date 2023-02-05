@@ -70,5 +70,20 @@ namespace Apis.Controllers
 
             return NoContent();
         }
+        [HttpGet("/api/HabilitarFrecuenciaBus/{IdFrecuencia}/{IdUsuario}")]
+        public dynamic HabilitarFrecuenciaBus(string IdFrecuencia, string IdUsuario)
+        {
+            var frecuencia = FrecuenciaBusNegocio.ObtenerFrecuenciaBusPorId(Convert.ToInt32(IdFrecuencia));
+            if (frecuencia == null)
+            {
+                return NotFound();
+            }
+            else
+            {
+                return FrecuenciaBusNegocio.HabilitarFrecuenciaBus(IdFrecuencia, IdUsuario);
+            }
+
+            return NoContent();
+        }
     }
 }

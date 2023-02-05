@@ -33,5 +33,9 @@ namespace Negocio
         {
             return FrecuenciaBusDatos.Eliminar(Id);
         }
+        public static bool HabilitarFrecuenciaBus(string IdFrecuencia, string IdUsuario)
+        {
+            return FrecuenciaBusDatos.HabilitarFrecuenciaBus(IdFrecuencia, IdUsuario);
+        }
     }
 }

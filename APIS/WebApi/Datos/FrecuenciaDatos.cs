@@ -187,5 +187,28 @@ namespace Datos
                 throw;
             }
         }
+        public static bool HabilitarFrecuencia(string IdFrecuencia, string IdUsuario)
+        {
+            try
+            {
+                FrecuenciaEntidad frecuenciaEntidad = new FrecuenciaEntidad();
+                SqlConnection connection = new SqlConnection(cadenaConexion);
+                connection.Open();
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = connection;
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = @"exec sp_HabilitarFrecuencia @Id, @IdUsuario";
+                cmd.Parameters.AddWithValue("@Id", IdFrecuencia);
+                cmd.Parameters.AddWithValue("@IdUsuario", IdUsuario);
+                cmd.ExecuteNonQuery();
+                connection.Close();
+                return true;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
     }
 }

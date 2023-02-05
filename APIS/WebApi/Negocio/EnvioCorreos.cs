@@ -15,7 +15,7 @@ namespace Negocio
         {
             try
             {
-                var cliente = new SmtpClient("smtp.dimsistem.somee.com",26)
+                var cliente = new SmtpClient("smtp.dimsistem.somee.com",25)
                 {
                     EnableSsl = false,
                     DeliveryMethod = SmtpDeliveryMethod.Network,

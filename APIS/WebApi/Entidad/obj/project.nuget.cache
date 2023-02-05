@@ -1,8 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "863tM9SndIjWIvKDkE05Ei6MuD9v6MH+W55QXYKMPXJ273rfLGht0n9niAFNuLovBy605NBzIUcWRpTwbI/TQA==",
+  "dgSpecHash": "li84PaIQRAaH3nk+KOZq9+IckZHgSfOXnQsMiJe3O32sHI+4YPNARlRIfBoXHYUPQeKKITCBxZQF5FZqF0IS6A==",
   "success": true,
   "projectFilePath": "C:\\DAS\\PROYECTO FINAL\\SUB RAMAS\\desarrolloAPIs\\Proyecto-Buses-DAS\\APIS\\WebApi\\Entidad\\Entidad.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\Mauricio\\.nuget\\packages\\microsoft.aspnetcore.http.features\\5.0.17\\microsoft.aspnetcore.http.features.5.0.17.nupkg.sha512",
+    "C:\\Users\\Mauricio\\.nuget\\packages\\microsoft.extensions.primitives\\5.0.1\\microsoft.extensions.primitives.5.0.1.nupkg.sha512",
+    "C:\\Users\\Mauricio\\.nuget\\packages\\system.io.pipelines\\5.0.2\\system.io.pipelines.5.0.2.nupkg.sha512"
+  ],
   "logs": []
 }

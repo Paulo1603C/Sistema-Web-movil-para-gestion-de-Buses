@@ -33,5 +33,9 @@ namespace Negocio
         {
             return FrecuenciaDatos.Eliminar(Id);
         }
+        public static bool HabilitarFrecuencia(string IdFrecuencia, string IdUsuario)
+        {
+            return FrecuenciaDatos.HabilitarFrecuencia(IdFrecuencia, IdUsuario);
+        }
     }
 }

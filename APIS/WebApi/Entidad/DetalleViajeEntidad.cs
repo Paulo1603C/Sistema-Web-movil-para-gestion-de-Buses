@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Http;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -25,10 +26,24 @@ namespace Entidad
         public string RutaImagen { get; set; }
         public int IdCategoria { get; set; }
         public string Categoria { get; set; }
-        public string Recargo { get; set; }
+        public decimal Recargo { get; set; }
         public int IdCooperativa { get; set; }
         public string Cooperativa { get; set; }
         public string Telefono { get; set; }
         public string PaginaWeb { get; set; }
+        public decimal PrecioBase { get; set; }
+        public decimal PrecioFinal { get; set; }
+        public DateTime Fecha { get; set; }
+        public string HoraSalida { get; set; }
+        public int IdCliente { get; set; }
+        public string? Cliente { get; set; }
+        public string? Evidencia { get; set; }
+        public int IdFormaPago { get; set; }
+        public string? FormaPago { get; set; }
+        public int IdUsuarioConfirma { get; set; }
+        public string? UsuarioConfirma { get; set; }
+        public string? Observacion { get; set; }
+        public byte[]? Imagen { get; set; }
+
     }
 }

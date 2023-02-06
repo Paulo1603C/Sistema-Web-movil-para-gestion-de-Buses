@@ -30,5 +30,6 @@ namespace Entidad
         public string MarcaCh { get; set; }
         public string Numero { get; set; }
         public string RamvCpn { get; set; }
+        public decimal Precio { get; set; }
     }
 }

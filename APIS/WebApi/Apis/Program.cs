@@ -54,7 +54,7 @@ if (app.Environment.IsDevelopment())
 app.UseCors("PoliticasMovilmitog");
 app.UseSwagger();
 app.UseSwaggerUI();
-
+app.UseStaticFiles();
 app.UseHttpsRedirection();
 app.UseAuthentication();
 

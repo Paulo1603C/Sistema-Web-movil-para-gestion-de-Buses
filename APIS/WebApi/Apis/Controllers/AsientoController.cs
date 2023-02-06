@@ -14,6 +14,11 @@ namespace Apis.Controllers
         {
             return AsientoNegocio.ListarAsientos();
         }
+        [HttpGet("/PorBus/{IdBus}")]
+        public async Task<ActionResult<IEnumerable<AsientoEntidad>>> GetListaPorIdBus(int IdBus)
+        {
+            return AsientoNegocio.ListarAsientosPorIdBus(IdBus);
+        }
 
         [HttpGet("{id}")]
         public async Task<ActionResult<AsientoEntidad>> Get(int id)

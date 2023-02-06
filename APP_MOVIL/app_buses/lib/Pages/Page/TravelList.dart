@@ -16,6 +16,7 @@ class _TravelListState extends State<TravelList> {
   List<Buses> _listaBuses = [];
 
   TextEditingController dateController = TextEditingController();
+  TextEditingController destinoController = TextEditingController();
   String? buscar;
   @override
   Widget build(BuildContext context) {
@@ -53,8 +54,8 @@ class _TravelListState extends State<TravelList> {
 //input para buscar
   Widget buscardor() {
     return TextField(
+      controller: destinoController,
       enableInteractiveSelection: false,
-      obscureText: true,
       decoration: InputDecoration(
         labelText: 'Buscar',
         suffixIcon: IconButton(
@@ -93,9 +94,7 @@ class _TravelListState extends State<TravelList> {
 
 //medoto buscar
   _metodoBuscar() {
-    setState(() {
-      print("object;");
-    });
+    Provider.of<BusesProviders>(context,listen: false).getBuses( destino:destinoController.text );
   }
 
 //widget calendart
@@ -103,7 +102,6 @@ class _TravelListState extends State<TravelList> {
     return TextField(
       controller: dateController,
       enableInteractiveSelection: false,
-      autofocus: true,
       decoration: InputDecoration(
         hintText: "12/12/2023",
         isDense: true,
@@ -121,6 +119,7 @@ class _TravelListState extends State<TravelList> {
               setState(() {
                 dateController.text = formatoDate.toString();
               });
+              Provider.of<BusesProviders>(context,listen: false).getBuses( fecha:dateController.text );
             }
           },
           icon: Icon(Icons.calendar_month),
@@ -188,12 +187,12 @@ class _TravelListState extends State<TravelList> {
                       children: [
                         Text("Salida:" + _listaBuses[index].salida.toString()),
                         Text("Llegada: " + _listaBuses[index].llegada.toString()),
-                        Text("22/02/2023-9:00"),
+                        Text( _listaBuses[index].fecha.toString()),
                         Card(
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              Text("5.55"),
+                              Text(_listaBuses[index].precio.toString()),
                               SizedBox(
                                 width: 8.0,
                               ),

@@ -12,7 +12,7 @@ class TicketReport extends StatelessWidget {
       ),
       body: Center(
         child: QrImage(
-          data: 'Datos del QR',
+          data: 'Codigo validado',
         ),
       ),
     );

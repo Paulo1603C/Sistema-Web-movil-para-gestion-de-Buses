@@ -1,4 +1,4 @@
-import 'dart:io';
+
 import 'package:flutter/cupertino.dart';
 import 'dart:convert';
 import 'package:flutter/material.dart';
@@ -9,19 +9,25 @@ class BusesProviders extends ChangeNotifier{
 
   List<Buses> _listBuses= [];
 
-  Future<void> getBuses() async {
+  Future<void> getBuses({String? destino, String? fecha}) async {
     List<Buses> listBuses=[];
     try{
-      var response = await http.get( Uri.parse('http://movilmitog-001-site1.etempurl.com/api/Bus' ));
+      final url = Uri.http("movilmitog-001-site1.etempurl.com","/buscar");
+      final body = jsonEncode( {"origen": null,"destino": destino,"fecha": fecha,"cooperativa": null,"categoria": null}) ;
+      final headers = {'Content-Type':'application/json'};
+      var response = await http.post( url, body:body, headers: headers );
+
       var decodeBuses = jsonDecode(response.body) as List;
       decodeBuses.forEach((busess) { 
-        listBuses.add( Buses(coperativa: busess['cooperativa'], estado: busess['numero'], salida: busess['transporte'], llegada: busess['transporte'], fecha: busess['modeloCar']));
+        listBuses.add( Buses( id: busess['idCooperativa'], coperativa: busess['cooperativa'], estado: busess['ramvCpn'], salida: busess['origen'], llegada: busess['destino'], fecha: busess['fecha'], precio: busess['precio'] ));
       });
       
       _listBuses = listBuses;
+      notifyListeners();
       print("Busess imprexion");
-      print(_listBuses[0]);
-    }finally{
+      print(response.body);
+    }catch(e){
+      print(e);
     }
   }
 

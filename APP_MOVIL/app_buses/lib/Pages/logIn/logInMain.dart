@@ -1,5 +1,7 @@
+import 'package:app_buses/providers/UserProviders.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:provider/provider.dart';
 
 class LogIn extends StatefulWidget {
   LogIn({Key? key}) : super(key: key);
@@ -89,9 +91,7 @@ class _LogInState extends State<LogIn> {
       decoration: InputDecoration(
         labelText: 'Contaseña',
         suffixIcon: IconButton(
-          onPressed: (() {
-            _verContrasena();
-          }),
+          onPressed: _verContrasena,
           icon: Icon(Icons.remove_red_eye_sharp),
         ),
         border: OutlineInputBorder(borderRadius: BorderRadius.circular(20.0)),
@@ -117,12 +117,13 @@ class _LogInState extends State<LogIn> {
                 fontSize: 30.0),
           ),
         ),
-        onPressed: () {
+        onPressed: () async {
           //
           _usu = _nombre.text;
           _con = _contrasena.text;
           if (_usu != '' || _con != '') {
-            if (_usu == 'DToapanta' || _con == '0990') {
+
+            if ( await Provider.of<UserProviders>(context,listen: false).getLogIn(_usu, _con) ) {
               GoRouter.of(context).go('/travellist');
             } else {
               _showAlertDialog();

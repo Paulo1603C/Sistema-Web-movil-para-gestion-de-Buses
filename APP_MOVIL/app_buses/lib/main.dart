@@ -1,4 +1,6 @@
 import 'package:app_buses/color_schemes.g.dart';
+import 'package:app_buses/providers/FrecuenciaBusesProviders.dart';
+import 'package:app_buses/providers/UserProviders.dart';
 import 'package:app_buses/providers/buses_providers.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -14,6 +16,12 @@ void main() {
     providers: [
       ChangeNotifierProvider(
         create: (ctx) => BusesProviders(),
+      ),
+      ChangeNotifierProvider(
+        create: (ctx) => UserProviders(),
+      ),
+      ChangeNotifierProvider(
+        create: (ctx) => FrecuenciaBusesProviders(),
       ),
     ],
     child: MyApp(),

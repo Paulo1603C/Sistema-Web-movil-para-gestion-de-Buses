@@ -1,0 +1,2061 @@
+openapi: 3.0.1
+info:
+  title: Documentación Apis Proyecto Buses
+  version: '1.0'
+  #definición a nivel de path
+  description: Proyecto desarrollado para la gestion de la compra de boletos online.
+paths:
+  /api/Asiento:
+    get:
+      tags:
+        - Asiento
+      summary: Devuelve todo los asientos existentes en la base de datos
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/AsientoEntidad'
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/AsientoEntidad'
+            text/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/AsientoEntidad'
+    post:
+      tags:
+        - Asiento
+      summary: Insertar nuevos asientos en la base de datos
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AsientoEntidad'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/AsientoEntidad'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/AsientoEntidad'
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/AsientoEntidad'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AsientoEntidad'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/AsientoEntidad'
+  /api/Asiento/{id}:
+    get:
+      tags:
+        - Asiento
+      summary: Obtiene los asientos por un id determinado
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int32
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/AsientoEntidad'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AsientoEntidad'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/AsientoEntidad'
+    put:
+      tags:
+        - Asiento
+      summary: Permite editar los asientos
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int32
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AsientoEntidad'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/AsientoEntidad'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/AsientoEntidad'
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/AsientoEntidad'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AsientoEntidad'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/AsientoEntidad'
+    delete:
+      tags:
+        - Asiento
+      summary: Eliminar los asientos por un id
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int32
+      responses:
+        '200':
+          description: Success
+  /api/Bus:
+    get:
+      tags:
+        - Bus
+      summary: Devuelve todo los buses existentes en la base de datos
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/BusEntidad'
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/BusEntidad'
+            text/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/BusEntidad'
+    post:
+      tags:
+        - Bus
+      summary: Devuelve todo los buses existentes en la base de datos
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BusEntidad'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/BusEntidad'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/BusEntidad'
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/BusEntidad'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BusEntidad'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/BusEntidad'
+  /api/Bus/{id}:
+    get:
+      tags:
+        - Bus
+      summary: 
+        Insertar nuevos buses en la base de datos
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int32
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/BusEntidad'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BusEntidad'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/BusEntidad'
+    put:
+      tags:
+        - Bus
+      summary: Permite editar los buses en la base de datos
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int32
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BusEntidad'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/BusEntidad'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/BusEntidad'
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/BusEntidad'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BusEntidad'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/BusEntidad'
+    delete:
+      tags:
+        - Bus
+      summary: Permite eliminar los buses de la base de datos
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int32
+      responses:
+        '200':
+          description: Success
+  /api/Categoria:
+    get:
+      tags:
+        - Categoria
+      summary: Devuelve todas la categorias existentes en la base de datos
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/CategoriaEntidad'
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/CategoriaEntidad'
+            text/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/CategoriaEntidad'
+    post:
+      tags:
+        - Categoria
+      summary: Insertar nuevas categorias en la base de datos
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CategoriaEntidad'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/CategoriaEntidad'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/CategoriaEntidad'
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/CategoriaEntidad'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CategoriaEntidad'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/CategoriaEntidad'
+  /api/Categoria/{id}:
+    get:
+      tags:
+        - Categoria
+      summary: Obtiene una categoria por un id determinado
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int32
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/CategoriaEntidad'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CategoriaEntidad'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/CategoriaEntidad'
+    put:
+      tags:
+        - Categoria
+      summary: Permirte editar una categoria
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int32
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CategoriaEntidad'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/CategoriaEntidad'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/CategoriaEntidad'
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/CategoriaEntidad'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CategoriaEntidad'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/CategoriaEntidad'
+    delete:
+      tags:
+        - Categoria
+      summary: Permite eliminar una categoría
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int32
+      responses:
+        '200':
+          description: Success
+  /api/Cooperativa:
+    get:
+      tags:
+        - Cooperativa
+      summary: Devuelve todo las cooperativas  existentes en la base de datos
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/CooperativaEntidad'
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/CooperativaEntidad'
+            text/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/CooperativaEntidad'
+    post:
+      tags:
+        - Cooperativa
+      summary: Permite insertar una nueva cooperativa en la base de datos
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CooperativaEntidad'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/CooperativaEntidad'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/CooperativaEntidad'
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/CooperativaEntidad'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CooperativaEntidad'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/CooperativaEntidad'
+  /api/Cooperativa/{id}:
+    get:
+      tags:
+        - Cooperativa
+      summary: Devuelve una cooperativa por un id determinado
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int32
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/CooperativaEntidad'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CooperativaEntidad'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/CooperativaEntidad'
+    put:
+      tags:
+        - Cooperativa
+      summary: Permirte le actualización de una cooperativa determinada
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int32
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CooperativaEntidad'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/CooperativaEntidad'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/CooperativaEntidad'
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/CooperativaEntidad'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CooperativaEntidad'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/CooperativaEntidad'
+    delete:
+      tags:
+        - Cooperativa
+      summary: Permite borrar una cooperativa
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int32
+      responses:
+        '200':
+          description: Success
+  /api/Frecuencia:
+    get:
+      tags:
+        - Frecuencia
+      summary: Devuelve todas las frecuencias  existentes en la base de datos
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/FrecuenciaEntidad'
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/FrecuenciaEntidad'
+            text/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/FrecuenciaEntidad'
+    post:
+      tags:
+        - Frecuencia
+      summary: Permite insertar una nueva frecuencia en la pase de datos
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FrecuenciaEntidad'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/FrecuenciaEntidad'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/FrecuenciaEntidad'
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/FrecuenciaEntidad'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FrecuenciaEntidad'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/FrecuenciaEntidad'
+  /api/Frecuencia/{id}:
+    get:
+      tags:
+        - Frecuencia
+      summary: Devuelve una frecuencia por un id determinado
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int32
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/FrecuenciaEntidad'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FrecuenciaEntidad'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/FrecuenciaEntidad'
+    put:
+      tags:
+        - Frecuencia
+      summary: Permite actualizar la información de una frecuencia
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int32
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FrecuenciaEntidad'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/FrecuenciaEntidad'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/FrecuenciaEntidad'
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/FrecuenciaEntidad'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FrecuenciaEntidad'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/FrecuenciaEntidad'
+    delete:
+      tags:
+        - Frecuencia
+      summary: Permite eliminar una frecuencia de la base de datos(eliminado lógico)
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int32
+      responses:
+        '200':
+          description: Success
+  /api/FrecuenciaBus:
+    get:
+      tags:
+        - FrecuenciaBus
+      summary: Devuelve todas las frecuencias de un bus existentes en la base de datos
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/FrecuenciaBusEntidad'
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/FrecuenciaBusEntidad'
+            text/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/FrecuenciaBusEntidad'
+    post:
+      tags:
+        - FrecuenciaBus
+      summary: Permite ingresar una nueva Frececia de un bus  en la base de datos
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FrecuenciaBusEntidad'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/FrecuenciaBusEntidad'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/FrecuenciaBusEntidad'
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/FrecuenciaBusEntidad'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FrecuenciaBusEntidad'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/FrecuenciaBusEntidad'
+  /api/FrecuenciaBus/{id}:
+    get:
+      tags:
+        - FrecuenciaBus
+      summary: Devuelve una frecuencia de un bus por un id determinado
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int32
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/FrecuenciaBusEntidad'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FrecuenciaBusEntidad'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/FrecuenciaBusEntidad'
+    put:
+      tags:
+        - FrecuenciaBus
+      summary: Permite editar la informacion de una frecuencia de un bus por un id 
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int32
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FrecuenciaBusEntidad'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/FrecuenciaBusEntidad'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/FrecuenciaBusEntidad'
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/FrecuenciaBusEntidad'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FrecuenciaBusEntidad'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/FrecuenciaBusEntidad'
+    delete:
+      tags:
+        - FrecuenciaBus
+      summary: Eliminar un frecuencia de un bus(elminación lógica)
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int32
+      responses:
+        '200':
+          description: Success
+  /api/FrecuenciaParada:
+    get:
+      tags:
+        - FrecuenciaParada
+      summary: Devuelve todas las frecuencias de las paradas existentes en la base de datos
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/FrecuenciaParadaEntidad'
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/FrecuenciaParadaEntidad'
+            text/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/FrecuenciaParadaEntidad'
+    post:
+      tags:
+        - FrecuenciaParada
+      summary: Permite ingresar una nueva frecuencia de parada en la base de datos
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FrecuenciaParadaEntidad'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/FrecuenciaParadaEntidad'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/FrecuenciaParadaEntidad'
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/FrecuenciaParadaEntidad'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FrecuenciaParadaEntidad'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/FrecuenciaParadaEntidad'
+  /api/FrecuenciaParada/{id}:
+    get:
+      tags:
+        - FrecuenciaParada
+      summary:  Devuelve una nueva frecuencia de parada por un id determinada
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int32
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/FrecuenciaParadaEntidad'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FrecuenciaParadaEntidad'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/FrecuenciaParadaEntidad'
+    put:
+      tags:
+        - FrecuenciaParada
+      summary: Peermite actualizar las información de una base de datos
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int32
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FrecuenciaParadaEntidad'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/FrecuenciaParadaEntidad'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/FrecuenciaParadaEntidad'
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/FrecuenciaParadaEntidad'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FrecuenciaParadaEntidad'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/FrecuenciaParadaEntidad'
+    delete:
+      tags:
+        - FrecuenciaParada
+      summary: Eliminación lógica de frecuencia de una parada
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int32
+      responses:
+        '200':
+          description: Success
+  /api/Login/Validar:
+    post:
+      tags:
+        - Login
+      summary: Ingreso de las credenciales del login
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LoginEntidad'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/LoginEntidad'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/LoginEntidad'
+      responses:
+        '200':
+          description: Success
+  /api/Lugar:
+    get:
+      tags:
+        - Lugar
+      summary: Devuelve todos los lugares registrados en la base de datos
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/LugarEntidad'
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/LugarEntidad'
+            text/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/LugarEntidad'
+    post:
+      tags:
+        - Lugar
+      summary: Ingresar nuevos lugares a la base de datos
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LugarEntidad'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/LugarEntidad'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/LugarEntidad'
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/LugarEntidad'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LugarEntidad'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/LugarEntidad'
+  /api/Lugar/{id}:
+    get:
+      tags:
+        - Lugar
+      summary: Devuelve un lugar por un id determinado
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int32
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/LugarEntidad'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LugarEntidad'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/LugarEntidad'
+    put:
+      tags:
+        - Lugar
+      summary: Permite actualizar la información de un lugar 
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int32
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LugarEntidad'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/LugarEntidad'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/LugarEntidad'
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/LugarEntidad'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LugarEntidad'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/LugarEntidad'
+    delete:
+      tags:
+        - Lugar
+      summary: Eliminación logia de un lugar de la base de datos
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int32
+      responses:
+        '200':
+          description: Success
+  /api/Rol:
+    get:
+      tags:
+        - Rol
+      summary: Devuelve todo los roles existentes en la base de datos
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/RolEntidad'
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/RolEntidad'
+            text/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/RolEntidad'
+    post:
+      tags:
+        - Rol
+      summary: Permite ingresar un nuevo rol en la base de datos
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RolEntidad'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/RolEntidad'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/RolEntidad'
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RolEntidad'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RolEntidad'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RolEntidad'
+  /api/Rol/{id}:
+    get:
+      tags:
+        - Rol
+      summary: Devuelve un rol por un id determinado
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int32
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RolEntidad'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RolEntidad'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RolEntidad'
+    put:
+      tags:
+        - Rol
+      summary: Permiteactualizar la información de un rol en la base de datos
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int32
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RolEntidad'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/RolEntidad'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/RolEntidad'
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RolEntidad'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RolEntidad'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RolEntidad'
+    delete:
+      tags:
+        - Rol
+      summary: Eliminacuión lógica de un rol en la base de datos
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int32
+      responses:
+        '200':
+
+          description: Success
+
+  /api/Ruta:
+    get:
+      tags:
+        - Ruta
+      summary: Devuelve todo las rutas existentes en la base de datos
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/RutaEntidad'
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/RutaEntidad'
+            text/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/RutaEntidad'
+    post:
+      tags:
+        - Ruta
+      summary: Ingresar una nueva ruta en la base de datos
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RutaEntidad'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/RutaEntidad'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/RutaEntidad'
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RutaEntidad'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RutaEntidad'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RutaEntidad'
+  /api/Ruta/{id}:
+    get:
+      tags:
+        - Ruta
+      summary: Devuelve una ruta por un id determinado
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int32
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RutaEntidad'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RutaEntidad'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RutaEntidad'
+    put:
+      tags:
+        - Ruta
+      summary: Actualizar la información de los campos de la tabla ruta 
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int32
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RutaEntidad'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/RutaEntidad'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/RutaEntidad'
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RutaEntidad'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RutaEntidad'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RutaEntidad'
+    delete:
+      tags:
+        - Ruta
+      summary: Eliminación lógica de la ruta en la base de datos
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int32
+      responses:
+        '200':
+          description: Success
+  /api/Usuario:
+    get:
+      tags:
+        - Usuario
+      summary: Devuelve todo los usuarios existentes en la base de datos
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/UsuarioEntidad'
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/UsuarioEntidad'
+            text/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/UsuarioEntidad'
+    post:
+      tags:
+        - Usuario
+      summary: Ingteso de un  nuevo usuario a la base de datos
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UsuarioEntidad'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/UsuarioEntidad'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/UsuarioEntidad'
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/UsuarioEntidad'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UsuarioEntidad'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/UsuarioEntidad'
+  /api/Usuario/{id}:
+    get:
+      tags:
+        - Usuario
+      summary: Devuelve un usuario de la base de datos por un id determinado
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int32
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/UsuarioEntidad'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UsuarioEntidad'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/UsuarioEntidad'
+    put:
+      tags:
+        - Usuario
+      summary: Permite actualizar la información de los campos de la tabla usuario
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int32
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UsuarioEntidad'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/UsuarioEntidad'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/UsuarioEntidad'
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/UsuarioEntidad'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UsuarioEntidad'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/UsuarioEntidad'
+    delete:
+      tags:
+        - Usuario
+      summary: Eliminación lógica de un usuario de la base de datos
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int32
+      responses:
+        '200':
+          description: Success
+  /buscar:
+    post:
+      tags:
+        - Viaje
+      summary: Ingreso de una nueva búsqueda
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FiltrosViaje'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/FiltrosViaje'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/FiltrosViaje'
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ViajeEntidad'
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ViajeEntidad'
+            text/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ViajeEntidad'
+  /asientos/{id}:
+    get:
+      tags:
+        - Viaje
+      summary: Devuelve todos los viajes existentes en la base de datos
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int32
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/DetalleViajeEntidad'
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/DetalleViajeEntidad'
+            text/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/DetalleViajeEntidad'
+  /reservarAsiento/{idUsuario}/{idAsiento}:
+    get:
+      tags:
+        - Viaje
+      summary: Perite reservar un asiento con un id de un usuario y el id del asiento que se desea reservar
+      parameters:
+        - name: idUsuario
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int32
+        - name: idAsiento
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int32
+      responses:
+        '200':
+          description: Success
+  /cerrar/{id}:
+    get:
+      tags:
+        - Viaje
+      summary: Devuelve todos los viajes existentes en la base de datos
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int32
+      responses:
+        '200':
+          description: Success
+  /crear/{fechaFin}:
+    get:
+      tags:
+        - Viaje
+      summary: Devuelve la fecha fin de un viaje
+      parameters:
+        - name: fechaFin
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Success
+  /crearDetalle:
+    get:
+      tags:
+        - Viaje
+      summary: Devuelve el detalle de un viaje
+      responses:
+        '200':
+          description: Success
+  /WeatherForecast:
+    get:
+      tags:
+        - WeatherForecast
+      summary:
+      operationId: GetWeatherForecast
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/WeatherForecast'
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/WeatherForecast'
+            text/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/WeatherForecast'
+components:
+  schemas:
+    AsientoEntidad:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+          nullable: true
+        idBus:
+          type: integer
+          format: int32
+          nullable: true
+        bus:
+          type: string
+          nullable: true
+        orden:
+          type: integer
+          format: int32
+          nullable: true
+        descripcion:
+          type: string
+          nullable: true
+        idCategoria:
+          type: integer
+          format: int32
+          nullable: true
+        categoria:
+          type: string
+          nullable: true
+      additionalProperties: false
+    BusEntidad:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+          nullable: true
+        idCooperativa:
+          type: integer
+          format: int32
+          nullable: true
+        cooperativa:
+          type: string
+          nullable: true
+        numero:
+          type: string
+          nullable: true
+        anio:
+          type: integer
+          format: int32
+          nullable: true
+        ramvCpn:
+          type: string
+          nullable: true
+        modeloCar:
+          type: string
+          nullable: true
+        marcaCh:
+          type: string
+          nullable: true
+        transporte:
+          type: string
+          nullable: true
+        pisos:
+          type: integer
+          format: int32
+        capacidad:
+          type: integer
+          format: int32
+        puertas:
+          type: integer
+          format: int32
+        rutaImagen:
+          type: string
+          nullable: true
+      additionalProperties: false
+    CategoriaEntidad:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+          nullable: true
+        descripcion:
+          type: string
+          nullable: true
+        idCooperativa:
+          type: integer
+          format: int32
+        cooperativa:
+          type: string
+          nullable: true
+      additionalProperties: false
+    CooperativaEntidad:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        nombre:
+          type: string
+          nullable: true
+        representante:
+          type: string
+          nullable: true
+        telefono:
+          type: string
+          nullable: true
+        correo:
+          type: string
+          nullable: true
+        paginaWeb:
+          type: string
+          nullable: true
+      additionalProperties: false
+    DetalleViajeEntidad:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        idViaje:
+          type: integer
+          format: int32
+        idAsiento:
+          type: integer
+          format: int32
+        estado:
+          type: string
+          nullable: true
+        orden:
+          type: integer
+          format: int32
+        desAsiento:
+          type: string
+          nullable: true
+        idBus:
+          type: integer
+          format: int32
+        numBus:
+          type: string
+          nullable: true
+        anio:
+          type: integer
+          format: int32
+        marcaCh:
+          type: string
+          nullable: true
+        modeloCar:
+          type: string
+          nullable: true
+        pisos:
+          type: integer
+          format: int32
+        ramvCpn:
+          type: string
+          nullable: true
+        rutaImagen:
+          type: string
+          nullable: true
+        idCategoria:
+          type: integer
+          format: int32
+        categoria:
+          type: string
+          nullable: true
+        recargo:
+          type: string
+          nullable: true
+        idCooperativa:
+          type: integer
+          format: int32
+        cooperativa:
+          type: string
+          nullable: true
+        telefono:
+          type: string
+          nullable: true
+        paginaWeb:
+          type: string
+          nullable: true
+      additionalProperties: false
+    FiltrosViaje:
+      type: object
+      properties:
+        origen:
+          type: string
+          nullable: true
+        destino:
+          type: string
+          nullable: true
+        fecha:
+          type: string
+          nullable: true
+        cooperativa:
+          type: string
+          nullable: true
+        categoria:
+          type: string
+          nullable: true
+      additionalProperties: false
+    FrecuenciaBusEntidad:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+          nullable: true
+        idFrecuencia:
+          type: integer
+          format: int32
+          nullable: true
+        frecuencia:
+          type: string
+          nullable: true
+        idBus:
+          type: integer
+          format: int32
+          nullable: true
+        bus:
+          type: string
+          nullable: true
+        habilitado:
+          type: boolean
+          nullable: true
+        idUsuarioH:
+          type: integer
+          format: int32
+          nullable: true
+        usuarioH:
+          type: string
+          nullable: true
+      additionalProperties: false
+    FrecuenciaEntidad:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+          nullable: true
+        idRuta:
+          type: integer
+          format: int32
+        ruta:
+          type: string
+          nullable: true
+        idCooperativa:
+          type: integer
+          format: int32
+        cooperativa:
+          type: string
+          nullable: true
+        horaSalida:
+          type: string
+          nullable: true
+        horaArribo:
+          type: string
+          nullable: true
+        habilitado:
+          type: boolean
+          nullable: true
+        idUsuarioH:
+          type: integer
+          format: int32
+          nullable: true
+        usuarioH:
+          type: string
+          nullable: true
+        diaSemana:
+          type: string
+          nullable: true
+        precio:
+          type: number
+          format: double
+      additionalProperties: false
+    FrecuenciaParadaEntidad:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+          nullable: true
+        idFrecuencia:
+          type: integer
+          format: int32
+          nullable: true
+        frecuencia:
+          type: string
+          nullable: true
+        idLugar:
+          type: integer
+          format: int32
+          nullable: true
+        lugar:
+          type: string
+          nullable: true
+        orden:
+          type: integer
+          format: int32
+          nullable: true
+      additionalProperties: false
+    LoginEntidad:
+      type: object
+      properties:
+        userName:
+          type: string
+          nullable: true
+        password:
+          type: string
+          nullable: true
+      additionalProperties: false
+    LugarEntidad:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        nombre:
+          type: string
+          nullable: true
+        latitud:
+          type: number
+          format: double
+          nullable: true
+        longitud:
+          type: number
+          format: double
+          nullable: true
+        canton:
+          type: string
+          nullable: true
+        provincia:
+          type: string
+          nullable: true
+      additionalProperties: false
+    RolEntidad:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+          nullable: true
+        nombre:
+          type: string
+          nullable: true
+        descripcion:
+          type: string
+          nullable: true
+      additionalProperties: false
+    RutaEntidad:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+          nullable: true
+        descripcion:
+          type: string
+          nullable: true
+        idLugarOrigen:
+          type: integer
+          format: int32
+        lugarOrigen:
+          type: string
+          nullable: true
+        idLugarDestino:
+          type: integer
+          format: int32
+        lugarDestino:
+          type: string
+          nullable: true
+      additionalProperties: false
+    UsuarioEntidad:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        nombre:
+          type: string
+          nullable: true
+        apellido:
+          type: string
+          nullable: true
+        tipoIdentificacion:
+          type: string
+          nullable: true
+        numeroIdentificacion:
+          type: string
+          nullable: true
+        telefono:
+          type: string
+          nullable: true
+        correo:
+          type: string
+          nullable: true
+        direccion:
+          type: string
+          nullable: true
+        usuario:
+          type: string
+          nullable: true
+        password:
+          type: string
+          nullable: true
+        idRol:
+          type: integer
+          format: int32
+        rol:
+          type: string
+          nullable: true
+      additionalProperties: false
+    ViajeEntidad:
+      type: object
+      properties:
+        idViaje:
+          type: integer
+          format: int32
+        fecha:
+          type: string
+          nullable: true
+        idCooperativa:
+          type: integer
+          format: int32
+        cooperativa:
+          type: string
+          nullable: true
+        representante:
+          type: string
+          nullable: true
+        paginaWeb:
+          type: string
+          nullable: true
+        telefono:
+          type: string
+          nullable: true
+        idFrecuencia:
+          type: integer
+          format: int32
+        horaSalida:
+          type: string
+          nullable: true
+        horaArribo:
+          type: string
+          nullable: true
+        idRuta:
+          type: integer
+          format: int32
+        origen:
+          type: string
+          nullable: true
+        destino:
+          type: string
+          nullable: true
+        numAsientosDisponibles:
+          type: integer
+          format: int32
+        numParadas:
+          type: integer
+          format: int32
+        idBus:
+          type: integer
+          format: int32
+        anio:
+          type: integer
+          format: int32
+        capacidad:
+          type: integer
+          format: int32
+        marcaCh:
+          type: string
+          nullable: true
+        numero:
+          type: string
+          nullable: true
+        ramvCpn:
+          type: string
+          nullable: true
+      additionalProperties: false
+    WeatherForecast:
+      type: object
+      properties:
+        date:
+          type: string
+          format: date-time
+        temperatureC:
+          type: integer
+          format: int32
+        temperatureF:
+          type: integer
+          format: int32
+          readOnly: true
+        summary:
+          type: string
+          nullable: true
+      additionalProperties: false

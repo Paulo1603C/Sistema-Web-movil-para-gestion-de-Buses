@@ -1,0 +1,54 @@
+<button
+type="button"
+class="btn btn-primary mb-3"
+data-bs-toggle="modal"
+data-bs-target="#exampleModal"
+>
+Nueva Asignacion de Bus a Frecuencia
+</button>
+<!-- Modal -->
+<div
+      class="modal fade"
+      id="exampleModal"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Ingresar Nueva Frecuencia</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+              <form [formGroup]="dataForm" (ngSubmit)="onSubmit()">
+                <input type="hidden" class="form-control" formControlName="id" [(ngModel)]="id">
+                <label class="form-label">Seleccione una Frecuencia</label>
+                <ng-select [(ngModel)]="idFrecuencia"  formControlName="idFrecuencia">
+                  <ng-option  *ngFor="let frec of frecuencias" [value]="frec.id" >{{frec.ruta}} -- {{frec.diaSemana}} -- {{frec.horaSalida}}</ng-option>
+                </ng-select>
+                <label class="form-label">Seleccione el Bus</label>
+                <ng-select [(ngModel)]="idBus"  formControlName="idBus">
+                  <ng-option  *ngFor="let bus of buses" [value]="bus.id" >{{bus.cooperativa}} -- {{bus.numero}} -- {{bus.anio}}</ng-option>
+                </ng-select>                
+              </form>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Cerrar
+            </button>
+            <button type="submit" class="btn btn-primary" (click)="onSubmit()" data-bs-dismiss="modal">Guardar Asignacion</button>
+          </div>
+        </div>
+      </div>
+    </div>
+

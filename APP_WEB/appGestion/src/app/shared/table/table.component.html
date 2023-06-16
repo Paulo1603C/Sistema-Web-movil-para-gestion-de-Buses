@@ -1,0 +1,28 @@
+<div>
+    <table class="table table-striped table-bordered">
+        <thead>
+            <tr>
+                <th scope="col" *ngFor="let columna of columns">
+                    {{columna.title}}
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr  *ngFor="let fila of data | paginate: { itemsPerPage: 6, currentPage: pageActual }; index as i  " (click)="abrir(fila['id'])">
+                <td *ngFor="let columna of columns">
+                    {{fila[columna.field]}}
+                </td>
+                <td>
+                    <button class="btn btn-danger" (click)="deleteRow(fila['id'])">Eliminar</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="paginator">
+        <pagination-controls 
+    (pageChange)="pageActual = $event"
+    previousLabel="Anterior" nextLabel="Siguiente"></pagination-controls>
+    </div>
+    
+</div>
+

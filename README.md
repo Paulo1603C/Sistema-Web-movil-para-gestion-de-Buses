@@ -13,24 +13,21 @@ El sistema movil sera de uso para los usarios donde podran visaulizar todo acerc
 ## Características
 
 ### Aplicación móvil para usuarios:
--Permite a los usuarios visualizar información sobre las cooperativas y autobuses disponibles.
--Los usuarios pueden comprar boletos directamente desde la aplicación.
--Proporciona detalles sobre los horarios de salida y llegada, precios de los boletos, tipos de autobuses, etc.
--Puede ofrecer la opción de buscar rutas y destinos específicos.
--Puede proporcionar notificaciones de cambios de horarios o cancelaciones de viajes.
+- Permite a los usuarios visualizar información sobre las cooperativas y autobuses disponibles.
+- Los usuarios pueden comprar boletos directamente desde la aplicación.
+- Proporciona detalles sobre los horarios de salida y llegada, precios de los boletos, tipos de autobuses, etc.
+- Puede ofrecer la opción de buscar rutas y destinos específicos.
+- Puede proporcionar notificaciones de cambios de horarios o cancelaciones de viajes.
 
 ### Aplicación móvil para controladores:
--Esta aplicación está diseñada exclusivamente para los controladores de los autobuses.
--Permite a los controladores validar los tickets de los pasajeros escaneando códigos QR o utilizando algún otro método de validación.
--Proporciona información actualizada sobre la lista de pasajeros y sus boletos para cada viaje.
--Puede incluir funciones adicionales para el controlador, como registrar datos de kilometraje, tiempo de conducción, etc.
+- Esta aplicación está diseñada exclusivamente para los controladores de los autobuses.
+- Permite a los controladores validar los tickets de los pasajeros escaneando códigos QR o utilizando algún otro método de validación.
 
 ### Aplicación web:
--Esta aplicación web se encarga de la gestión general del sistema.
--Permite agregar nuevas unidades de autobuses al sistema, registrar sus detalles y asignarles rutas específicas.
--Gestiona las fechas de salida y llegada de los autobuses.
--Puede generar informes y estadísticas relacionadas con las ventas de boletos, ocupación de los autobuses, ingresos, etc.
--Proporciona una interfaz administrativa para gestionar y mantener el sistema en funcionamiento.
+- Esta aplicación web se encarga de la gestión general del sistema.
+- Permite agregar nuevas unidades de autobuses al sistema, registrar sus detalles y asignarles rutas específicas.
+- Gestiona las fechas de salida y llegada de los autobuses.
+- Proporciona una interfaz administrativa para gestionar y mantener el sistema en funcionamiento.
 
 ## Instalación y ejecución
 -Para poder correr esta aplicaion es necesario tener instala flutter, dart, Angular.

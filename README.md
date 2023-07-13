@@ -2,7 +2,11 @@
 Un sistema que gestiona todo lo relacionado con compra de boletos de Autobus asi como la gestion de los mismos,cuenta con 3 sistemas como son 2 movil y una wed.
 El sistema movil sera de uso para los usarios donde podran visaulizar todo acerca de las cooperativas y buses asi comprar sus boletos, la segunda aplicacion movil sera de uso exclusivo para los controladores puedan validar el ticket del pasajero y la aplicacion web gestiona todo acerca de los buses como agregar una nueva unidad, fechas de salida y llegada entr otras funcoines.
 
-![Captura de pantalla del portafolio web](image.jpg)
+![Captura de pantalla del portafolio web](B1.jpg)
+![Captura de pantalla del portafolio web](B2.jpg)
+![Captura de pantalla del portafolio web](B3.jpg)
+![Captura de pantalla del portafolio web](B4.jpg)
+![Captura de pantalla del portafolio web](B5.jpg)
 
 ## Contribuidores
 - Paulo1603C

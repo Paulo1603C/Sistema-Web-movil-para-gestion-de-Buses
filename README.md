@@ -4,6 +4,13 @@ El sistema movil sera de uso para los usarios donde podran visaulizar todo acerc
 
 ![Captura de pantalla del portafolio web](image.jpg)
 
+## Contribuidores
+- Paulo1603C
+- Diego89git
+- ferguevara2000
+- mirandaLopezAbraham1
+- EsthefaniaVillacres
+
 ## Tecnologías utilizadas
 
 - Flutter
